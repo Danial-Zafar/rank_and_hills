@@ -8981,6 +8981,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nuxt-property-decorator@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "nuxt-property-decorator@npm:2.9.1"
+  dependencies:
+    vue-class-component: ^7.2.6
+    vue-property-decorator: ^9.0.0
+    vuex-class: ^0.3.2
+    vuex-module-decorators: ^1.0.1
+  checksum: a731608fc38f6d71cc63c90ce5d2bde3a30789aed00417d4252636d283b667d7f4cac1a8ca130d8e55b7f1add08bebfa4b347a4e7f7e03d85dd22611e196a7b2
+  languageName: node
+  linkType: hard
+
 "nuxt@npm:^2.15.8":
   version: 2.15.8
   resolution: "nuxt@npm:2.15.8"
@@ -9148,8 +9160,10 @@ __metadata:
     eslint-plugin-nuxt: ^3.1.0
     eslint-plugin-vue: ^8.2.0
     nuxt: ^2.15.8
+    nuxt-property-decorator: ^2.9.1
     postcss: ^8.4.4
     vue: ^2.6.14
+    vue-property-decorator: ^9.1.2
     vue-server-renderer: ^2.6.14
     vue-template-compiler: ^2.6.14
     webpack: ^4.46.0
@@ -12986,6 +13000,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-class-component@npm:^7.2.6":
+  version: 7.2.6
+  resolution: "vue-class-component@npm:7.2.6"
+  peerDependencies:
+    vue: ^2.0.0
+  checksum: 3b4e1de0328b2af0216cbbf125c4ac3da5701c9585713ee634f887092f4faaa1ff9589130ec9fc0b3240d7709217eb8d03e9c0e27fe80768d2883ffe5faf9a14
+  languageName: node
+  linkType: hard
+
 "vue-client-only@npm:^2.0.0":
   version: 2.1.0
   resolution: "vue-client-only@npm:2.1.0"
@@ -13054,6 +13077,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-property-decorator@npm:^9.0.0, vue-property-decorator@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "vue-property-decorator@npm:9.1.2"
+  peerDependencies:
+    vue: "*"
+    vue-class-component: "*"
+  checksum: 0155127c3e31bde1c6da13116793a215d60f445b5338e5f2717e0090556f698284d555b7c3f3e76c651c82880f1560d6f8d992f183c50a9be09ce7fe6d1f5300
+  languageName: node
+  linkType: hard
+
 "vue-router@npm:^3.5.1":
   version: 3.5.3
   resolution: "vue-router@npm:3.5.3"
@@ -13108,6 +13141,27 @@ __metadata:
   version: 2.6.14
   resolution: "vue@npm:2.6.14"
   checksum: 23524a1bdca094d62cb3491a46317eed75184b5d61d28fa846ea5d2b241c1cc7084fc67ee259d47a50a6d0bbc33ecaceb7bb52bff81312fe7da07263f3419942
+  languageName: node
+  linkType: hard
+
+"vuex-class@npm:^0.3.2":
+  version: 0.3.2
+  resolution: "vuex-class@npm:0.3.2"
+  peerDependencies:
+    vue: ^2.5.0
+    vue-class-component: ^6.0.0 || ^7.0.0
+    vuex: ^3.0.0
+  checksum: a43906190ebfd379f2c4712c073e6e1734c6f10f49d7fcf22e4faed98be845f8f7fc9bbef58d9358251ecabfa31dbfd904901cf981d91f04cecb1f74999a8406
+  languageName: node
+  linkType: hard
+
+"vuex-module-decorators@npm:^1.0.1":
+  version: 1.2.0
+  resolution: "vuex-module-decorators@npm:1.2.0"
+  peerDependencies:
+    vue: ">=2"
+    vuex: ">=3"
+  checksum: 12a4587f4fb877d1748acfa5acb7d1f4163280535aa1eb501a89c7ddc5f601ad717269265e6054988f53210d5c164877139719b0b99f6f7876397ff87354f990
   languageName: node
   linkType: hard
 

@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Cormorant-Garamond';
+        src: url(../fonts/Cormorant-Garamond.ttf);
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'Cormorant-Garamond';
+        src: url(../fonts/Cormorant-Garamond-500.ttf);
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: 'OpenSans';
+        src: url(../fonts/OpenSans-Light.ttf);
+        font-weight: 300;
+    }
+
+    @font-face {
+        font-family: 'OpenSans';
+        src: url(../fonts/OpenSans-Regular.ttf);
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'OpenSans';
+        src: url(../fonts/OpenSans-Semibold.ttf);
+        font-weight: 500;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-block px-5 py-3 rounded-lg focus:outline-none focus:ring
+        focus:ring-offset-2 uppercase tracking-wider font-semibold text-sm sm:text-base;
+    }
+    .btn-primary {
+        @apply bg-indigo-500 hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600 text-white;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-300 hover:bg-gray-200  focus:ring-gray-300 focus:ring-opacity-50 active:bg-gray-400 text-gray-800;
+    }
+    .gallery-item {
+        scroll-snap-align: start;
+    }
+    .gallery {
+        -webkit-overflow-scrolling: touch;
+        -moz-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    ::-webkit-scrollbar{
+        height: 4px;
+        width: 4px;
+        background: gray;
+    }
+    ::-webkit-scrollbar-thumb:horizontal{
+        background: #000;
+        border-radius: 10px;
+    }
+}
