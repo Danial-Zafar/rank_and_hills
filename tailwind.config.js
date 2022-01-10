@@ -12,7 +12,11 @@ module.exports = {
           DEFAULT: '#4d5858',
           dark: '#2b2b2b',
           orange: '#ff5100',
-          background: '#1a1a1a'
+          background: '#1a1a1a',
+          thumb: '#a6a6a6',
+          scroll: '#2d2d2d',
+          contact: '#333333',
+          footer: '#656565'
         }
       },
       fontFamily: {
