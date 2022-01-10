@@ -55,13 +55,71 @@
         scroll-snap-type: x mandatory;
     }
     
-    ::-webkit-scrollbar{
+    /* ::-webkit-scrollbar:horizontal {
         height: 4px;
         width: 4px;
-        background: #2d2d2d;
+        background-color: #2d2d2d;
     }
-    ::-webkit-scrollbar-thumb:horizontal{
+    ::-webkit-scrollbar-thumb:horizontal {
         background: #a6a6a6;
         border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track:horizontal {
+        margin-left: 25vw;
+        margin-right: 25vw;
+        background-color: #2d2d2d;
+    }
+
+    ::-webkit-scrollbar-track-piece:horizontal {
+        background-color: #2d2d2d;
+    } */
+
+
+    /* Turn on a 13x13 scrollbar */
+    ::-webkit-scrollbar {
+        /* width: 4px; */
+        height: 5px;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track:horizontal {
+        background-color: transparent;
+        /* border: 1px dashed pink; */
+    }
+
+    /* Top area above thumb and below up button */
+     ::-webkit-scrollbar-track-piece:horizontal:start {
+        margin-left: 25vw;
+        background-color: #2d2d2d;
+        /* border: 1px solid #000; */
+    }
+
+    /* Bottom area below thumb and down button */
+    ::-webkit-scrollbar-track-piece:horizontal:end {
+        /* border: 1px dashed pink; */
+        margin-right: 25vw;
+        background-color: #2d2d2d;
+    }
+
+    /* Track below and above */
+    ::-webkit-scrollbar-track-piece {
+        background-color: #2d2d2d;
+    }
+
+    /* The thumb itself */
+    ::-webkit-scrollbar-thumb:horizontal {
+        background-color: #a6a6a6;
+        border-radius: 10px;
+    }
+
+    /* Corner */
+    ::-webkit-scrollbar-corner:horizontal {
+        background-color: black;
+    }
+
+    /* Resizer */
+    ::-webkit-scrollbar-resizer:horizontal {
+        background-color: gray;
     }
 }
