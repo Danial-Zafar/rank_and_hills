@@ -1,4 +1,5 @@
 import { Vue, Component } from 'nuxt-property-decorator'
+import { Prop } from 'vue-property-decorator'
 
 import SectionHeader from '../SectionHeader/section-header'
 import Map from '../Map.vue'
@@ -11,5 +12,15 @@ import Map from '../Map.vue'
   }
 })
 export default class Contact extends Vue {
-  city: string = 'singapore'
+  @Prop({ default: 'singapore' }) city !: string
+  cityName = 'singapore'
+
+  created () {
+    this.cityName = this.city
+  }
+
+  onClickchangeCity (cityName: string) {
+    this.cityName = cityName
+    this.$emit('changeCity', cityName)
+  }
 }
