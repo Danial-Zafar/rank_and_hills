@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'home-1': "url('assets/img/beach-work.jpg')",
+        'home-2': "url('assets/img/circle.svg')"
       },
       colors: {
         transparent: 'transparent',

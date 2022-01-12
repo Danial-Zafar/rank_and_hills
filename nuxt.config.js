@@ -7,9 +7,12 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
+      // { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self' https://* blob: data:; script-src https://* 'unsafe-eval'; style-src 'unsafe-inline' https://*; child-src *;connect-src https://*;" }
+
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' }
     ]
   },
 
