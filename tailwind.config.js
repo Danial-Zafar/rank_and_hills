@@ -4,6 +4,9 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     extend: {
+      backgroundImage: {
+        'home-1': "url('assets/img/beach-work.jpg')",
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
@@ -16,7 +19,8 @@ module.exports = {
           thumb: '#a6a6a6',
           scroll: '#2d2d2d',
           contact: '#333333',
-          footer: '#656565'
+          footer: '#656565',
+          marker: '#bdbdbd',
         }
       },
       fontFamily: {
@@ -30,7 +34,9 @@ module.exports = {
       backgroundColor: ['active']
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
   purge: {
     content: [
       'components/**/*.{vue,js}',

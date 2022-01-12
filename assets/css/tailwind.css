@@ -54,6 +54,30 @@
         -moz-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
     }
+
+    .carousel {
+        display: flex;
+        overflow-x: scroll;
+        -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .carousel-vertical {
+        flex-direction: column;
+        overflow-y: scroll;
+        -ms-scroll-snap-type: y mandatory;
+        scroll-snap-type: y mandatory;
+    }
+
+    .carousel-item {
+        box-sizing: content-box;
+        display: flex;
+        flex: none;
+        scroll-snap-align: start;
+    }
     
     /* ::-webkit-scrollbar:horizontal {
         height: 4px;
@@ -121,5 +145,30 @@
     /* Resizer */
     ::-webkit-scrollbar-resizer:horizontal {
         background-color: gray;
+    }
+}
+
+@layer utilities {
+    .snap {
+      scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
+      -ms-scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .snap-y {
+      --scroll-snap-direction: y;
+    }
+    .snap-mandatory {
+      --scroll-snap-constraint: mandatory;
+    }
+    .snap-start {
+      scroll-snap-align: start;
+    }
+    .snap::-webkit-scrollbar {
+        display: none;
+    }
+
+    .list-middot > li:not(:last-child)::after {
+        content: '·';
     }
 }
