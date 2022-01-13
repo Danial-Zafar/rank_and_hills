@@ -3,7 +3,7 @@
     <div class="px-8 py-12 max-w-md mx-2 sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-1 2xl:col-span-2">
       <div class="xl:max-w-xl">
           <img class="h-14" :src="require(`~/assets/img/logo-white.png`)" alt="Rankine & Hill">
-          <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" :src="require(`~/assets/img/beach-work.jpg`)" alt="Woman workcationing on the beach">
+          <!-- <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" :src="require(`~/assets/img/beach-work.jpg`)" alt="Woman workcationing on the beach"> -->
           <h1 class="mt-16 lg:mt-16 text-2xl font-serif font-bold text-white sm:mt-8 sm:text-xl lg:text-3xl xl:text-3xl">
               Rankine&Hill Pte Ltd
           </h1>
@@ -15,12 +15,6 @@
 
           <ul class="lg:mt-8 text-white lg:text-base sm:mt-4 sm:text-xl">
             <li class="mt-1">Tel +65 6258 8666</li>
-            <li class="mt-1">Fax +65 6259 8648</li>
-          </ul>
-
-          <ul class="list-none lg:mt-12 text-white lg:text-base sm:mt-4 sm:text-xl">
-            <li class="mt-1">Tel +65 6258 8666</li>
-            <li class="mt-1">Fax +65 6259 8648</li>
             <li class="mt-1">Fax +65 6259 8648</li>
           </ul>
 
@@ -56,22 +50,22 @@
     <div class="px-8 py-12 max-w-md mx-2 sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
         <div class="xl:max-w-xl">
             <img class="h-14" :src="require(`~/assets/img/logos.png`)" alt="Multiple Logos">
-            <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" :src="require(`~/assets/img/beach-work.jpg`)" alt="Woman workcationing on the beach">
-            <h1 class="mt-16 lg:mt-20 text-2xl font-bold text-white sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
+            <!-- <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" :src="require(`~/assets/img/beach-work.jpg`)" alt="Woman workcationing on the beach"> -->
+            <h1 class="mt-16 lg:mt-16 text-2xl font-bold text-white sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
               &nbsp;
             </h1>
             <ul class="mt-2 list-none lg:text-base sm:mt-4 sm:text-xl" style="color: #6f6f6f">
-              <li class="mt-3">About</li>
-              <li class="mt-3">Projects</li>
-              <li class="mt-3">Awards</li>
-              <li class="mt-3">Resources</li>
-              <li class="mt-3">Insights</li>
-              <li class="mt-3">Offices</li>
-              <li class="mt-3">Contact</li>
-              <li class="mt-3">Login</li>
+              <li>About</li>
+              <li>Projects</li>
+              <li>Awards</li>
+              <li>Resources</li>
+              <li>Insights</li>
+              <li>Offices</li>
+              <li>Contact</li>
+              <li>Login</li>
             </ul>
-            <p class="mt-2 uppercase font-bold text-brand-footer lg:mt-16 lg:text-xs sm:mt-4 sm:text-xl">
-              Disclaimer | PDPA  <span>&copy; 2022 ONG&ONG Group. All Rights Reserved.</span>
+            <p class="mt-2 uppercase font-bold text-brand-footer lg:mt-8 lg:text-xs sm:mt-4 sm:text-xl">
+              Disclaimer | PDPA  <span class="ml-5">&copy; 2022 ONG&ONG Group. All Rights Reserved.</span>
             </p>
         </div>
     </div>
@@ -81,7 +75,7 @@
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
               <h3 class="text-6xl font-medium leading-6 text-white font-serif">Connect</h3>
-              <p class="mt-10 mb-5 text-sm text-brand-footer">
+              <p class="mt-10 mb-2 text-sm text-brand-footer">
                 Get in touch with us or make enquiries here.
               </p>
             </div>
@@ -89,35 +83,35 @@
           <div class="mt-5 md:mt-0 md:col-span-2">
             <form action="#" method="POST">
               <div class="overflow-hidden sm:rounded-md">
-                <div class="py-5">
+                <div class="py-2">
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
-                      <label for="name" class="block text-sm font-medium text-white uppercase">Name</label>
-                      <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-brand-footer focus:border-brand-footer block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <!-- <label for="name" class="block text-sm font-medium text-white uppercase">Name</label> -->
+                      <input type="text" placeholder="NAME" name="name" id="name" autocomplete="given-name" class="block w-full border-0 bg-transparent focus:border-transparent placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6 sm:col-span-3">
-                      <label for="designation" class="block text-sm font-medium text-white uppercase">Designation</label>
-                      <input type="text" name="designation" id="designation" class="mt-1 focus:ring-brand-footer focus:border-brand-footer block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <!-- <label for="designation" class="block text-sm font-medium text-white uppercase">Designation</label> -->
+                      <input type="text" placeholder="DESIGNATION" name="designation" id="designation" class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm">
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
-                      <label for="company" class="block text-sm font-medium text-white uppercase">Company</label>
-                      <input type="text" name="company" id="company" class="mt-1 focus:ring-brand-footer focus:border-brand-footer block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <!-- <label for="company" class="block text-sm font-medium text-white uppercase">Company</label> -->
+                      <input type="text" placeholder="COMPANY" name="company" id="company" class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6 sm:col-span-3">
-                      <label for="email" class="block text-sm font-medium text-white uppercase">Email</label>
-                      <input type="text" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-brand-footer focus:border-brand-footer block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <!-- <label for="email" class="block text-sm font-medium text-white uppercase">Email</label> -->
+                      <input type="text" placeholder="EMAIL" name="email" id="email" autocomplete="email" class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6">
-                      <label for="message" class="block text-sm font-medium text-white uppercase">Message</label>
-                      <textarea type="text" name="message" id="message"  class="mt-1 focus:ring-brand-footer focus:border-brand-footer block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                      <!-- <label for="message" class="block text-sm font-medium text-white uppercase">Message</label> -->
+                      <textarea type="text" placeholder="MESSAGE" name="message" id="message"  class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm"></textarea>
                     </div>
 
                     <div class="flex items-center col-span-6">
-                      <input type="checkbox" name="newsletter" id="newsletter"  class="mt-1 ml-1 rounded-full focus:ring-brand-footer focus:border-brand-footer block shadow-sm sm:text-sm border-brand-footer">
+                      <input type="checkbox" name="newsletter" id="newsletter"  class="ml-1 rounded-full bg-brand-footer focus:ring-brand-footer focus:border-brand-footer block shadow-sm sm:text-sm border-brand-footer">
                       <label for="newsletter" class="ml-2 block text-sm font-medium text-brand-footer">Subscribe to our newsletter</label>
                     </div>
 
