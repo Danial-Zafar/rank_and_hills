@@ -34,13 +34,13 @@
         </div>
         <div class="hidden relative lg:block lg:col-span-1 2xl:col-span-1">
             <!-- <img class="absolute inset-0 w-full h-full object-cover object-center" :src="require(`~/assets/img/oasia-hotel.png`)" alt="Woman workcationing on the beach"> -->
-            <Map :selectedCity="city" />
+            <Map :selectedCity="cityName" />
             <div class="absolute w-full h-full top-0 left-0 block">
                 <div class="px-10 py-10 text-2xl text-right text-brand-thumb">
                     <ul class="list-none">
-                        <li class="cursor-pointer" v-on:click="changeCity('singapore')">SINGAPORE</li>
-                        <li class="mt-3 cursor-pointer" v-on:click="changeCity('malaysia')">MALAYSIA</li>
-                        <li class="mt-3 cursor-pointer" v-on:click="changeCity('vietnam')">VIETNAM</li>
+                        <li class="cursor-pointer" @click="onClickchangeCity('singapore')">SINGAPORE</li>
+                        <li class="mt-3 cursor-pointer" @click="onClickchangeCity('malaysia')">MALAYSIA</li>
+                        <li class="mt-3 cursor-pointer" @click="onClickchangeCity('vietnam')">VIETNAM</li>
                     </ul>
                     <div class="relative mt-80">
                         <div class="absolute bottom-0 right-0 text-5xl text-white font-serif">We Understand Asia</div>

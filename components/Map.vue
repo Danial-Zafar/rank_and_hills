@@ -1,22 +1,31 @@
 <template>
-  <div id="map" class="w-full h-full" />
+  <div id="map" class="w-full h-full" > </div>
 </template>
 
 <script>
 import mapboxgl from 'mapbox-gl'
-// Singapore [103.808052586332, 1.3516161224392]
-// Malaysia [113.265151593398, 2.72055802604466]
-// Vietnam [108.339537475899, 14.3154241771087]
 
 export default {
 
   props: ['selectedCity'],
+
   // use environment variable later on
   data () {
     return {
       accessToken: 'pk.eyJ1IjoiYWZhdGlyIiwiYSI6ImNreWJtaWg1cjBna2cyeG9mZjNsNGc3ZjQifQ._cgXfiK-9djLaT6iZImvKw',
       map: {},
-      city: this.selectedCity
+      city: this.selectedCity,
+      locatonCordinate: {
+        Singapore: [103.808052586332, 1.3516161224392],
+        Malaysia: [113.265151593398, 2.72055802604466],
+        Vietnam: [108.339537475899, 14.3154241771087]
+      }
+    }
+  },
+  watch: {
+    selectedCity () {
+      this.createMap()
+      this.addMarker()
     }
   },
   mounted () {
@@ -48,7 +57,20 @@ export default {
       el.style.backgroundSize = '100%'
 
       const marker = new mapboxgl.Marker(el)
-      marker.setLngLat([103.808052586332, 1.3516161224392]).addTo(this.map)
+      let currentCityCordinate = [103.808052586332, 1.3516161224392]
+      if (this.selectedCity === 'singapore') {
+        currentCityCordinate = this.locatonCordinate.Singapore
+      } else if (this.selectedCity === 'vietnam') {
+        marker.remove()
+        currentCityCordinate = this.locatonCordinate.Vietnam
+      } else if (this.selectedCity === 'malaysia') {
+        marker.remove()
+        currentCityCordinate = this.locatonCordinate.Malaysia
+      }
+      this.map.flyTo({
+        center: currentCityCordinate
+      })
+      marker.setLngLat(currentCityCordinate).addTo(this.map)
     }
   }
 }
