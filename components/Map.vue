@@ -17,7 +17,7 @@ export default {
       city: this.selectedCity,
       locatonCordinate: {
         Singapore: [103.808052586332, 1.3516161224392],
-        Malaysia: [113.265151593398, 2.72055802604466],
+        Malaysia: [101.693207, 3.140853],
         Vietnam: [108.339537475899, 14.3154241771087]
       }
     }

@@ -14,6 +14,7 @@ import Map from '../Map.vue'
 export default class Contact extends Vue {
   @Prop({ default: 'singapore' }) city !: string
   cityName = 'singapore'
+  cityImg = require('~/assets/img/singapore.png')
 
   created () {
     this.cityName = this.city
@@ -21,6 +22,7 @@ export default class Contact extends Vue {
 
   onClickchangeCity (cityName: string) {
     this.cityName = cityName
+    this.cityImg = require(`~/assets/img/${cityName}.png`)
     this.$emit('changeCity', cityName)
   }
 }
