@@ -1,5 +1,4 @@
 import { Vue, Component } from 'nuxt-property-decorator'
-import { OfficeModel } from '~/models/office.model'
 
 import Contact from '../Contact/contact'
 
@@ -24,18 +23,19 @@ export default class MapContainer extends Vue {
   }
 
   changeCity (cityName: string) {
-    console.log('3')
+    // console.log('3')
     this.cityName = cityName
   }
 
   getOfficeByName (courtyName:string) {
-    console.log('2')
+  //  console.log('2')
     if (this.offices) {
       const office : any = this.offices.find((x) => {
         if (x.country === courtyName) {
           this.changeCity(courtyName)
-
           return x.office[0]
+        } else {
+          return null
         }
       })
 
@@ -49,7 +49,7 @@ export default class MapContainer extends Vue {
         title: office.office[0].title
       }
 
-      console.log(this.officeModel)
+      //  console.log(this.officeModel)
       return this.officeModel
     }
   }
@@ -59,7 +59,7 @@ export default class MapContainer extends Vue {
       this.offices = await (await this.$axios.get('https://api.rankine-hill.com/offices/')).data.result
     // console.log('office', this.offices)
     } catch (err) {
-      console.log(err)
+      // console.log(err)
     }
   }
 }
