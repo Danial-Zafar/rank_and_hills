@@ -1,0 +1,8 @@
+a) https://api.rankine-hill.com/project/?homepage=true
+b) https://api.rankine-hill.com/about/?show_mainpage=true
+c) https://api.rankine-hill.com/offices/
+d) https://api.rankine-hill.com/feedback/
+[POST] BODY : name,company,contact,comments,email,subject,subscribe_news
+
+e) https://api.rankine-hill.com/groupcompany/
+ https://api.rankine-hill.com/setting/   
