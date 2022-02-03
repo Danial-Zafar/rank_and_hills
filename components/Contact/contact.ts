@@ -28,8 +28,9 @@ export default class Contact extends Vue {
   }
 
   onClickchangeCity (cityName: string) {
+    console.log('cityname', cityName)
     this.cityName = cityName
    // this.cityImg = require(`~/assets/img/${cityName}.png`)
-    this.$emit('changeCity', cityName)
+    this.$emit('getOfficeByName', cityName)
   }
 }

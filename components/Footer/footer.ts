@@ -4,7 +4,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
   name: 'Footer'
 })
 export default class Footer extends Vue {
-  companyGroup: any
+  companyGroup: any = null
 
   mounted () {
     this.getAboutConent()

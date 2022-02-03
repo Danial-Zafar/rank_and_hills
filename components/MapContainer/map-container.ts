@@ -23,12 +23,12 @@ export default class MapContainer extends Vue {
   }
 
   changeCity (cityName: string) {
-    // console.log('3')
+    console.log('3')
     this.cityName = cityName
   }
 
   getOfficeByName (courtyName:string) {
-  //  console.log('2')
+    console.log('2')
     if (this.offices) {
       const office : any = this.offices.find((x) => {
         if (x.country === courtyName) {
