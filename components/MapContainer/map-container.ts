@@ -49,7 +49,7 @@ export default class MapContainer extends Vue {
         title: office.office[0].title
       }
 
-      //  console.log(this.officeModel)
+      console.log(this.officeModel)
       return this.officeModel
     }
   }

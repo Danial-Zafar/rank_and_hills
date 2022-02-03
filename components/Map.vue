@@ -7,7 +7,7 @@ import mapboxgl from 'mapbox-gl'
 
 export default {
 
-  props: ['selectedCity'],
+  props: ['selectedCity', 'geocoordinate'],
 
   // use environment variable later on
   data () {
@@ -57,16 +57,8 @@ export default {
       el.style.backgroundSize = '100%'
 
       const marker = new mapboxgl.Marker(el)
-      let currentCityCordinate = [103.808052586332, 1.3516161224392]
-      if (this.selectedCity === 'singapore') {
-        currentCityCordinate = this.locatonCordinate.Singapore
-      } else if (this.selectedCity === 'vietnam') {
-        marker.remove()
-        currentCityCordinate = this.locatonCordinate.Vietnam
-      } else if (this.selectedCity === 'malaysia') {
-        marker.remove()
-        currentCityCordinate = this.locatonCordinate.Malaysia
-      }
+      const currentCityCordinate = this.geocoordinate.split(',').map(x => parseFloat(x)).reverse()
+
       this.map.flyTo({
         center: currentCityCordinate
       })
