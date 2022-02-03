@@ -6,6 +6,16 @@ import { Vue, Component } from 'nuxt-property-decorator'
 export default class Footer extends Vue {
   companyGroup: any = null
 
+  model = {
+    name: null,
+    company: null,
+    contact: null,
+    comments: null,
+    email: null,
+    subject: null,
+    subscribe_news: null
+  }
+
   mounted () {
     this.getAboutConent()
   }
@@ -13,10 +23,14 @@ export default class Footer extends Vue {
   async getAboutConent () {
     try {
       this.companyGroup = await (await this.$axios.get('https://api.rankine-hill.com/groupcompany/')).data.result
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
-      if (this.companyGroup) {
-        //console.log(this.companyGroup)
-      }
+  async onSubmit () {
+    try {
+      this.companyGroup = await this.$axios.post('https://api.rankine-hill.com/feedback/', this.model)
     } catch (err) {
       console.log(err)
     }
