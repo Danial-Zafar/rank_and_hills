@@ -49,10 +49,12 @@
     </div>
     <div class="px-8 py-12 max-w-md mx-2 sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
         <div class="xl:max-w-xl">
-          <div v-for="item in companyGroup">
-            <!-- <img class="h-14" :src="require(`~/assets/img/logos.png`)" alt="Multiple Logos"> -->
-                <img class="h-14" :src="item.image" alt="Multiple Logos">
-           </div>
+            <div class="flex justify-start content-center">
+              <div v-for="item in companyGroup" class="self-center pt-4">
+              <!-- <img class="h-14" :src="require(`~/assets/img/logos.png`)" alt="Multiple Logos"> -->
+                  <img class="h-10" :src="item.image" alt="Multiple Logos">
+              </div>
+            </div>
             <h1 class="mt-16 lg:mt-16 text-2xl font-bold text-white sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
               &nbsp;
             </h1>
@@ -89,27 +91,27 @@
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="name" class="block text-sm font-medium text-white uppercase">Name</label> -->
-                      <input v-model="model.name" type="text" placeholder="NAME" name="name" id="name" autocomplete="given-name" class="block w-full border-0 bg-transparent focus:border-transparent placeholder-white sm:text-sm">
+                      <input v-model="model.name" type="text" placeholder="NAME" name="name" id="name" autocomplete="given-name" class="block w-full border-0 bg-transparent focus:border-transparent text-white placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="subject" class="block text-sm font-medium text-white uppercase">Designation</label> -->
-                      <input  v-model="model.subject" type="text" placeholder="SUBJECT" name="subject" id="subject" class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm">
+                      <input  v-model="model.subject" type="text" placeholder="SUBJECT" name="subject" id="subject" class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="company" class="block text-sm font-medium text-white uppercase">Company</label> -->
-                      <input v-model="model.company" type="text" placeholder="COMPANY" name="company" id="company" class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm">
+                      <input v-model="model.company" type="text" placeholder="COMPANY" name="company" id="company" class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="email" class="block text-sm font-medium text-white uppercase">Email</label> -->
-                      <input v-model="model.email" type="text" placeholder="EMAIL" name="email" id="email" autocomplete="email" class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm">
+                      <input v-model="model.email" type="text" placeholder="EMAIL" name="email" id="email" autocomplete="email" class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6">
                       <!-- <label for="message" class="block text-sm font-medium text-white uppercase">Message</label> -->
-                      <textarea v-model="model.comments" type="text" placeholder="MESSAGE" name="message" id="message"  class="focus:border-transparent block w-full border-0 bg-transparent placeholder-white sm:text-sm"></textarea>
+                      <textarea v-model="model.comments" type="text" placeholder="MESSAGE" name="message" id="message"  class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm"></textarea>
                     </div>
 
                     <div class="flex items-center col-span-6">
