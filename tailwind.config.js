@@ -27,6 +27,9 @@ module.exports = {
       fontFamily: {
         sans: ['OpenSans', ...defaultTheme.fontFamily.sans],
         serif: ['Cormorant-Garamond', ...defaultTheme.fontFamily.serif]
+      },
+      minWidth: {
+        '1/2': '50%'
       }
     }
   },

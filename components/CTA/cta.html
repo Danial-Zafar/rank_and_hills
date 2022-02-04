@@ -8,7 +8,7 @@
       <div class="md:hidden">
         <div class="max-w-full">
           <img class="w-full object-cover object-center" :src="sliderImage" alt="Slider Image">
-          <div class="absolute w-full h-full top-28 left-0 block bg-black bg-opacity-40">
+          <div class="absolute w-full h-2/5 sm:w-full sm:h-full top-28 left-0 block bg-black bg-opacity-40">  <!--height: 16.63rem-->
             <div class="uppercase text-xl text-right text-white">
               <ul class="list-none px-3 py-4">
                 <li @click="sliderImage = require('~/assets/img/beach-work.jpg')">Singapore</li>
@@ -23,12 +23,12 @@
           </div>
         </div>
       </div>
-      <div class="bg-brand">
-        <div class="px-14 py-10 xl:max-w-xl">
-          <h1 class="text-3xl font-bold text-white uppercase tracking-widest">
+      <div class="bg-brand-black sm:bg-brand">
+        <div class="px-4 sm:px-14 py-10 xl:max-w-xl">
+          <h1 class="mb-6 text-3xl font-bold text-white uppercase tracking-widest sm:mb-0">
             Engineering
           </h1>
-          <ul class="list-none text-white font-semibold uppercase space-y-2 lg:mt-10 sm:mt-4 sm:text-md">
+          <ul class="list-none text-white font-semibold uppercase sm:space-y-2 lg:mt-10 sm:mt-4 sm:text-md">
             <li>Mechanical</li>
             <li>Electrical</li>
             <li>Civil</li>

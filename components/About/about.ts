@@ -11,7 +11,7 @@ import SectionHeader from '../SectionHeader/section-header'
 export default class About extends Vue {
   aboutConent: any
   imageUrl : string = ''
-  bodyText: string = ''
+  bodyTextList: string[] = []
 
   mounted () {
     this.getAboutConent()
@@ -23,7 +23,11 @@ export default class About extends Vue {
 
       if (this.aboutConent) {
         this.imageUrl = this.aboutConent[1].image
-        this.bodyText = this.aboutConent[0].body_text
+        // this.bodyText = this.aboutConent[0].body_text
+        const matches = [...this.aboutConent[0].body_text.matchAll(/\<p\>(.*)\<\/p\>/g)]
+        this.bodyTextList = matches.map(match => match[1])
+
+        // .replaceAll('<p>', '<p class="mt-3 text-white sm:mt-4 text-2xl">')
       }
     } catch (err) {
       console.log(err)

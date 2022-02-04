@@ -4,8 +4,8 @@
       <div class="relative flex items-center justify-between h-16">
         <div class="flex items-center justify-center lg:flex-1 sm:justify-start">
           <div class="flex-shrink-0 flex items-center lg:w-0 lg:flex-1">
-            <img class="block lg:hidden h-8 w-auto" :src="require('~/assets/img/logo-white.png')" alt="Workflow">
-            <img class="hidden lg:block h-16 w-auto" :src="require('~/assets/img/logo-white.png')" alt="Workflow">
+            <!-- <img class="block lg:hidden h-16 w-auto" :src="require('~/assets/img/logo-white.png')" alt="Workflow"> -->
+            <img class="h-16 w-auto" :src="require('~/assets/img/logo-white.png')" alt="Workflow">
           </div>
           <div class="hidden sm:block sm:ml-14">
             <div class="flex space-x-8 uppercase font-sans">
