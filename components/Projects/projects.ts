@@ -18,10 +18,6 @@ export default class Projects extends Vue {
   async getAboutConent () {
     try {
       this.projects = await (await this.$axios.get('https://api.rankine-hill.com/project/?homepage=true')).data.result
-
-      if (this.projects) {
-      // console.log(this.projects)
-      }
     } catch (err) {
       console.log(err)
     }

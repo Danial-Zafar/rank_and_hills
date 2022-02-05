@@ -23,12 +23,10 @@ export default class MapContainer extends Vue {
   }
 
   changeCity (cityName: string) {
-    console.log('3')
     this.cityName = cityName
   }
 
   getOfficeByName (courtyName:string) {
-    console.log('2')
     if (this.offices) {
       const office : any = this.offices.find((x) => {
         if (x.country === courtyName) {
@@ -49,7 +47,6 @@ export default class MapContainer extends Vue {
         title: office.office[0].title
       }
 
-      console.log(this.officeModel)
       return this.officeModel
     }
   }
@@ -57,9 +54,8 @@ export default class MapContainer extends Vue {
   async getoffices () {
     try {
       this.offices = await (await this.$axios.get('https://api.rankine-hill.com/offices/')).data.result
-    // console.log('office', this.offices)
     } catch (err) {
-      // console.log(err)
+      console.log(err)
     }
   }
 }

@@ -20,17 +20,14 @@ export default class Contact extends Vue {
   cityImg = require('~/assets/img/singapore.png')
 
   created () {
-    console.log('prop office model', this.offices)
-
     if (this.officeModel?.country) {
       this.cityName = this.officeModel?.country
     }
   }
 
   onClickchangeCity (cityName: string) {
-    console.log('cityname', cityName)
     this.cityName = cityName
-   // this.cityImg = require(`~/assets/img/${cityName}.png`)
+    // this.cityImg = require(`~/assets/img/${cityName}.png`)
     this.$emit('getOfficeByName', cityName)
   }
 }
