@@ -53,11 +53,11 @@ export default class CTA extends Vue {
 
   selectedCountry = 'singapore'
 
-  public splitTitle(title: string): string[] {
+  public splitTitle (title: string): string[] {
     return title.split(/\s+/gm)
   }
 
-  public getBackgroundImage(imgUrl: string) {
+  public getBackgroundImage (imgUrl: string) {
     const img = require('~/assets/img/beach-work.jpg')
     return { backgroundImage: `url("${img}")` }
   }

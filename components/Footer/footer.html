@@ -1,30 +1,90 @@
 <section class="bg-brand-black">
   <div class="grid lg:grid-cols-4 2xl:grid-cols-8">
-    <div class="px-8 py-12 max-w-md mx-2 sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-1 2xl:col-span-2">
+    <div class="block mx-0 px-4 py-12 max-w-md bg-brand-contact sm:max-w-xl lg:hidden lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
+      <div class="mt-10 sm:mt-0 xl:max-w-xl">
+        <div class="mt-10 sm:mt-0">
+          <div class="md:col-span-1">
+            <div>
+              <h3 class="px-1 text-4xl font-medium leading-6 text-white font-serif">Connect</h3>
+              <p class="mt-5 px-1 text-xs text-brand-footer">
+                Get in touch with us or make enquiries here.
+              </p>
+            </div>
+          </div>
+          <div class="mt-3 md:mt-0 md:col-span-2">
+            <form  @submit.prevent="onSubmit">
+              <div class="overflow-hidden sm:rounded-md">
+                <div class="py-2">
+                  <div class="grid grid-cols-6 gap-2">
+                    <div class="col-span-6 sm:col-span-3">
+                      <!-- <label for="name" class="block text-sm font-medium text-white uppercase">Name</label> -->
+                      <input v-model="model.name" type="text" placeholder="NAME" name="name" id="name" autocomplete="given-name" class="pl-1 block w-full border-0 bg-transparent focus:border-transparent text-xs text-white placeholder-white">
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-3">
+                      <!-- <label for="subject" class="block text-sm font-medium text-white uppercase">Designation</label> -->
+                      <input  v-model="model.subject" type="text" placeholder="SUBJECT" name="subject" id="subject" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-xs text-white placeholder-white">
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-3">
+                      <!-- <label for="company" class="block text-sm font-medium text-white uppercase">Company</label> -->
+                      <input v-model="model.company" type="text" placeholder="COMPANY" name="company" id="company" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-xs text-white placeholder-white">
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-3">
+                      <!-- <label for="email" class="block text-sm font-medium text-white uppercase">Email</label> -->
+                      <input v-model="model.email" type="text" placeholder="EMAIL" name="email" id="email" autocomplete="email" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-xs text-white placeholder-white">
+                    </div>
+      
+                    <div class="col-span-6">
+                      <!-- <label for="message" class="block text-sm font-medium text-white uppercase">Message</label> -->
+                      <textarea v-model="model.comments" type="text" placeholder="MESSAGE" name="message" id="message"  class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-xs text-white placeholder-white"></textarea>
+                    </div>
+
+                    <div class="flex items-center col-span-6">
+                      <input v-model="model.subscribe_news" type="checkbox" name="newsletter" id="newsletter"  class="ml-1 rounded-full bg-brand-footer focus:ring-brand-footer focus:border-brand-footer block shadow-sm text-xs border-brand-footer">
+                      <label for="newsletter" class="ml-2 block text-sm font-medium text-brand-footer">Subscribe to our newsletter</label>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="py-3 text-left">
+                  <button type="submit" class="inline-flex justify-center py-2 px-8 uppercase border border-transparent shadow-sm text-sm font-medium rounded-3xl text-white bg-brand-orange hover:bg-brand-orange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-orange">
+                    Submit
+                  </button>
+                  <p class="mt-5 text-xs font-medium text-brand-footer">Your Privacy is important to us.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>       
+      </div>
+    </div>
+    <div class="px-4 py-12 max-w-md mx-2 sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-1 2xl:col-span-2">
       <div class="xl:max-w-xl">
           <img class="h-14" :src="require(`~/assets/img/logo-white.png`)" alt="Rankine & Hill">
           <!-- <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" :src="require(`~/assets/img/beach-work.jpg`)" alt="Woman workcationing on the beach"> -->
-          <h1 class="mt-16 lg:mt-16 text-2xl font-serif font-bold text-white sm:mt-8 sm:text-xl lg:text-3xl xl:text-3xl">
+          <h1 class="hidden lg:block mt-16 lg:mt-16 text-2xl font-serif font-bold text-white sm:mt-8 sm:text-xl lg:text-3xl xl:text-3xl">
               Rankine&Hill Pte Ltd
           </h1>
-          <ul class="lg:mt-8 text-white lg:text-base sm:mt-4 sm:text-xl">
+          <ul class="mt-4 lg:mt-8 text-brand-footer lg:text-white lg:text-base sm:text-xl">
             <li>510 Thomson Road</li>
             <li class="mt-1">#11-00 SLF Building</li>
             <li class="mt-1">Singapore 298135</li>
           </ul>
 
-          <ul class="lg:mt-8 text-white lg:text-base sm:mt-4 sm:text-xl">
+          <ul class="mt-8 lg:mt-8 text-brand-footer lg:text-white lg:text-base sm:text-xl">
             <li class="mt-1">Tel +65 6258 8666</li>
             <li class="mt-1">Fax +65 6259 8648</li>
           </ul>
 
-          <div class="flex items-center mt-2 lg:mt-12 sm:mt-4">
-            <div class="mr-5">
+          <div class="flex items-center mt-20 sm:mt-8 lg:mt-12">
+            <div class="mr-12 lg:mr-5">
               <a href="">
                 <svg width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
               </a>
             </div>
-            <div class="mr-4">
+            <div class="mr-12 lg:mr-5">
               <a href="">
                 <svg width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 20 20"><path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path></svg>
               </a>
@@ -47,7 +107,36 @@
           </p> -->
       </div>
     </div>
-    <div class="px-8 py-12 max-w-md mx-2 sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
+    <div class="block px-4 pt-0 pb-4 max-w-md mx-2 lg:hidden sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
+      <div class="xl:max-w-xl">
+        <p class="mt-2 uppercase font-bold text-xs text-brand-footer lg:mt-8 lg:text-xs sm:mt-4 sm:text-xl">
+          &copy; 2022 ONG&ONG Group.  
+        </p>
+        <p class="uppercase font-bold text-xs text-brand-footer lg:mt-8 lg:text-xs sm:mt-4 sm:text-xl">
+          All Rights Reserved. Disclaimer | PDPA  
+        </p>
+        <!-- <span class="float-right">
+          <svg stroke="#bdbdbd" class="h-14 w-14 stroke-current text-brand-marker" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve">
+            <path d="M257.261,88.679c-1.635-2.034-3.428-3.405-5.281-4.258c-5.586-4.25-13.649-5.319-20.253,0.794
+                C156.973,154.431,77.815,218.764,4.669,289.735c-4.961,4.81-5.558,10.542-3.702,15.463c0.363,2.828,1.485,5.683,3.702,8.333
+                c17.61,21.018,36.122,41.223,55.467,60.667c8.325,8.363,19.296,4.219,24.138-3.494c48.362-40.649,96.253-87.062,144.664-127.66
+                c46.263,46.052,98.673,90.438,146.659,134.622c5.383,4.951,11.73,5.149,16.92,2.772c4.936-0.376,9.455-3.361,12.781-7.662
+                c15.615-20.216,32.077-39.746,49.231-58.677c7.814-4.763,12.126-15.884,3.793-24.358
+                C391.827,222.103,316.886,162.896,257.261,88.679z M386.993,346.025c-47.073-42.157-97.574-85.62-141.874-130.824
+                c-2.306-2.356-4.834-3.656-7.373-4.248c-5.578-3.786-13.348-4.674-19.883,0.779c-49.129,41.015-97.627,87.976-146.558,129.219
+                c-12.002-12.446-23.577-25.293-34.901-38.364c66.443-63.515,137.316-122.143,205.155-184.145
+                c55.127,66.511,122.171,121.356,183.386,182.017C411.859,315.293,399.251,330.502,386.993,346.025z"/>
+          </svg>
+        </span> -->
+        <div class="flex justify-start content-center">
+          <div v-for="(item, index) in companyGroup" class="self-center pt-4" :class="{ 'ml-2': index !==0 }">
+          <!-- <img class="h-14" :src="require(`~/assets/img/logos.png`)" alt="Multiple Logos"> -->
+              <img class="h-14" :src="item.image" alt="Multiple Logos">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden px-8 py-12 max-w-md mx-2 lg:block sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
         <div class="xl:max-w-xl">
             <div class="flex justify-start content-center">
               <div v-for="item in companyGroup" class="self-center pt-4 ml-2">
@@ -73,7 +162,7 @@
             </p>
         </div>
     </div>
-    <div class="px-8 py-12 max-w-md mx-2 bg-brand-contact sm:max-w-xl lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
+    <div class="hidden px-8 py-12 max-w-md mx-2 bg-brand-contact sm:max-w-xl lg:block lg:px-12 lg:py-12 lg:max-w-full xl:mr-0 lg:col-span-2 2xl:col-span-3">
       <div class="mt-10 sm:mt-0 xl:max-w-xl">
         <div class="mt-10 sm:mt-0">
           <div class="md:col-span-1">
