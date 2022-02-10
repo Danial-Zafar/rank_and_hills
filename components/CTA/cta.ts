@@ -4,6 +4,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
   name: 'CTA'
 })
 export default class CTA extends Vue {
+  hero: any = null
   sliderImage: any = require('~/assets/img/beach-work.jpg')
 
   content = {
@@ -55,6 +56,21 @@ export default class CTA extends Vue {
 
   public splitTitle (title: string): string[] {
     return title.split(/\s+/gm)
+  }
+
+  mounted () {
+    this.getHero()
+  }
+
+  async getHero () {
+    try {
+      this.hero = await (await this.$axios.get('https://api.rankine-hill.com/homeslideshow/')).data.result
+      if (this.hero) {
+        console.log('hero', this.hero)
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   public getBackgroundImage (imgUrl: string) {

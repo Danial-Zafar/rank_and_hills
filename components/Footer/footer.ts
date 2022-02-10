@@ -5,6 +5,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
 })
 export default class Footer extends Vue {
   companyGroup: any = null
+  socialMediaIcons: any = null
 
   model = {
     name: null,
@@ -18,11 +19,21 @@ export default class Footer extends Vue {
 
   mounted () {
     this.getAboutConent()
+    this.getSocialMediaIcons()
   }
 
   async getAboutConent () {
     try {
       this.companyGroup = await (await this.$axios.get('https://api.rankine-hill.com/groupcompany/')).data.result
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async getSocialMediaIcons () {
+    try {
+      this.socialMediaIcons = await (await this.$axios.get('https://api.rankine-hill.com/socialmedia/')).data.result
+      console.log ('social', this.socialMediaIcons)
     } catch (err) {
       console.log(err)
     }

@@ -6,3 +6,7 @@ d) https://api.rankine-hill.com/feedback/
 
 e) https://api.rankine-hill.com/groupcompany/
  https://api.rankine-hill.com/setting/   
+
+ https://api.rankine-hill.com/socialmedia/
+
+ https://api.rankine-hill.com/homeslideshow/
