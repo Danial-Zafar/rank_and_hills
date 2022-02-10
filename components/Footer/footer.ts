@@ -46,4 +46,9 @@ export default class Footer extends Vue {
       console.log(err)
     }
   }
+
+  splitIconName (icon: string) {
+    const iconName = icon.split(' ')[1].split('-')
+    return iconName.slice(1, iconName.length).join('-')
+  }
 }

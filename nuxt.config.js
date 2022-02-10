@@ -32,12 +32,21 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome'
   ],
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     exposeConfig: true    // Only for dev purpose, remove or set the value false for production
+  },
+
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      // solid: true,
+      brands: ['faInstagramSquare', 'faInstagram', 'faTwitterSquare', 'faFacebookSquare']
+    }
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
