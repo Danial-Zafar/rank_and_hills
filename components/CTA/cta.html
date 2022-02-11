@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div :style="{'background-color': hero[selectedSlide].hex_color}">
+      <div v-if="hero" :style="{'background-color': hero[selectedSlide].hex_color}">
         <div class="px-4 sm:px-14 py-10 xl:max-w-xl">
           <h1 class="mb-6 text-3xl font-bold text-white uppercase tracking-widest sm:mb-0">
             Engineering
@@ -40,11 +40,11 @@
       </div>
     </div>
     <div class="hidden relative md:block md:col-span-3 lg:col-span-3 2xl:col-span-3">
-      <section class="bg-center bg-cover" :style="{ backgroundImage: `url('${hero[selectedSlide].image}')` }">
+      <section v-if="hero" class="bg-center bg-cover" :style="{ backgroundImage: `url('${hero[selectedSlide].image}')` }">
         <div class="p-10 text-white flex bg-black bg-opacity-40">
           <div>
             <div class="flex flex-row-reverse w-full">
-              <h1 class="text-3xl text-white uppercase whitespace-pre-wrap">
+              <h1  v-if="hero" class="text-3xl text-white uppercase whitespace-pre-wrap">
                 Experience
                         {{hero[selectedSlide].country}}<span class="text-brand-orange">.</span>
               </h1>
@@ -61,7 +61,7 @@
                 </ul>
               </div>
             </div>
-            <div class="pt-10 flex flex-row">
+            <div v-if="hero" class="pt-10 flex flex-row">
               <p class="text-sm">{{hero[selectedSlide].project}}</p>
             </div>
           </div>

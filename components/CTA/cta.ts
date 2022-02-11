@@ -105,7 +105,7 @@ export default class CTA extends Vue {
     return title.split(/\s+/gm)
   }
 
-  mounted () {
+  created () {
     this.getHero()
   }
 
@@ -113,7 +113,7 @@ export default class CTA extends Vue {
     try {
       this.hero = await (await this.$axios.get('https://api.rankine-hill.com/homeslideshow/')).data.result[0]?.gallery
       if (this.hero) {
-        this.countries = this.hero.map(slide => slide.country)
+        this.countries = this.hero.map((slide: { country: any }) => slide.country)
         console.log('hero', this.hero)
       }
     } catch (err) {
