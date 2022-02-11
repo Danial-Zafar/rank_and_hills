@@ -8,4 +8,18 @@ import SectionHeader from '../SectionHeader/section-header'
     SectionHeader
   }
 })
-export default class Projects extends Vue {}
+export default class Projects extends Vue {
+  projects: any = null
+
+  mounted () {
+    this.getAboutConent()
+  }
+
+  async getAboutConent () {
+    try {
+      this.projects = await (await this.$axios.get('https://api.rankine-hill.com/project/?homepage=true')).data.result
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}

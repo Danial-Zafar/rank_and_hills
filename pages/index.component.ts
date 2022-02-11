@@ -1,6 +1,6 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
-import Header from '@/components/Header.vue';
+import Header from '@/components/Header/header.vue';
 import CTA from '@/components/CTA/cta.vue'
 import Projects from '~/components/Projects/projects.vue';
 import About from '@/components/About/about.vue';

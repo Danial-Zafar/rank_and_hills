@@ -1,8 +1,173 @@
-<section id="projects" class="bg-brand-background pb-20">
+<section id="projects" class="bg-brand-background pb-5 lg:pb-20">
     <SectionHeader title="Projects" url="#" displayLink="true" />
+
+    <main class="block lg:hidden">
+      <div class="grid grid-flow-col pb-5 overflow-x-auto hide-scroll-bar overscroll-x-contain gallery" style="grid-template-rows: auto auto; scrollbar-width: thin; scrollbar-color: #a6a6a6 #2d2d2d;">
+        <div v-if="projects" v-for="item in projects" class="w-52 flex-shrink-0 bg-brand-dark gallery-item">
+              <!-- <img class="rounded-t-lg" :src="item.thumbnail" /> -->
+            <img :src="item.thumbnail" class="h-40 object-cover" />
+            <div class="py-4 px-5">
+                <div>
+                    <p class="text-brand-orange font-bold text-xs">{{item.title}}</p>
+                </div>
+                <p class="mb-3 text-white text-xs">{{item.country}}</p>
+            </div>
+        </div>
+      </div>
+    </main>
     <!--"hidden lg:block"-->
-    <main>
+    <main class="hidden lg:block">
       <div class="grid grid-flow-col pb-20 overflow-x-auto hide-scroll-bar overscroll-x-contain gallery" style="grid-template-rows: auto auto; scrollbar-width: thin; scrollbar-color: #a6a6a6 #2d2d2d;">
+        <div v-if="projects" v-for="item in projects" class="w-96 h-72 relative border-0 flex-shrink-0 gallery-item">
+          <img :src="item.thumbnail" class="object-contain h-full w-full" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div v-if="item.service" v-for="service in item.service" class="items-center">
+                  <span>&nbsp;&bull;&nbsp;</span> {{service}}
+                </div>
+                <span class="text-brand-orange">&nbsp;&bull;&nbsp;</span><span class="uppercase">{{item.country}}</span>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">{{item.title}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>MYANMAR
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Kalaw</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>INDONESIA
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Gold Coast Apartment</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>INDONESIA
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Royal Orchid Lounge Phuket</h1>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>MALAYSIA
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Grandezza</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>VIETNAM
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Vietcombank</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>MALAYSIA
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Residence</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div class="items-center">
+                  Architecture<span>&nbsp;&bull;&nbsp;</span>
+                  Engineering<span>&nbsp;&bull;&nbsp;</span>
+                  Interior<span>&nbsp;&bull;&nbsp;</span>
+                  Landscape<span>&nbsp;&bull;&nbsp;</span>
+                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>SINGAPORE
+                </div>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">Tekka Place</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
           <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
@@ -154,159 +319,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>SINGAPORE
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Heartbeat@Bedok</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>MYANMAR
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Kalaw</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>INDONESIA
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Gold Coast Apartment</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>INDONESIA
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Royal Orchid Lounge Phuket</h1>
-               </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>MALAYSIA
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Grandezza</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>VIETNAM
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Vietcombank</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>MALAYSIA
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Residence</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-96 h-64 relative border-0 flex-shrink-0 gallery-item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" />
-          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
-            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
-              <div class="px-16 row-span-1 flex justify-start flex-wrap">
-                <div class="items-center">
-                  Architecture<span>&nbsp;&bull;&nbsp;</span>
-                  Engineering<span>&nbsp;&bull;&nbsp;</span>
-                  Interior<span>&nbsp;&bull;&nbsp;</span>
-                  Landscape<span>&nbsp;&bull;&nbsp;</span>
-                  Lighting<span class="text-brand-orange">&nbsp;&bull;&nbsp;</span>SINGAPORE
-                </div>
-                <div class="py-2 row-span-1 flex flex-wrap">
-                  <h1 class="text-4xl font-medium text-white font-serif">Tekka Place</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </main>
   </section>

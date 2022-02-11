@@ -21,7 +21,7 @@ module.exports = {
           scroll: '#2d2d2d',
           contact: '#333333',
           footer: '#656565',
-          marker: '#bdbdbd',
+          marker: '#bdbdbd'
         }
       },
       fontFamily: {
