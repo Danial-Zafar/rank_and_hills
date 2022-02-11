@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="bg-brand-black sm:bg-brand">
+      <div :style="{'background-color': hero[selectedSlide].hex_color}">
         <div class="px-4 sm:px-14 py-10 xl:max-w-xl">
           <h1 class="mb-6 text-3xl font-bold text-white uppercase tracking-widest sm:mb-0">
             Engineering
@@ -40,9 +40,40 @@
       </div>
     </div>
     <div class="hidden relative md:block md:col-span-3 lg:col-span-3 2xl:col-span-3">
-      <section class="bg-center bg-cover" :style="getBackgroundImage(content[selectedCountry].imgUrl)">
+      <section class="bg-center bg-cover" :style="{ backgroundImage: `url('${hero[selectedSlide].image}')` }">
         <div class="p-10 text-white flex bg-black bg-opacity-40">
-          <div> <!--class="min-h-screen min-w-full"-->
+          <div>
+            <div class="flex flex-row-reverse w-full">
+              <h1 class="text-3xl text-white uppercase whitespace-pre-wrap">
+                Experience
+                        {{hero[selectedSlide].country}}<span class="text-brand-orange">.</span>
+              </h1>
+            </div>
+            <div class="mt-64 flex flex-row justify-between items-center">
+              <div class="w-3/5 text-2xl md:text-md">
+                <p>
+                  {{content[selectedSlide].text}}
+                </p>
+              </div>
+              <div class="uppercase text-3xl md:text-md">
+                <ul class="list-none">
+                  <li v-for="(country, index) in countries" class="cursor-pointer" :class="{ 'mt-4': index !== 0 }" @click="selectedSlide = index">{{country}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="pt-10 flex flex-row">
+              <p class="text-sm">{{hero[selectedSlide].project}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <!-- <section class="bg-center bg-cover" :style="getBackgroundImage(content[selectedCountry].imgUrl)">
+        <div class="p-10 text-white flex bg-black bg-opacity-40">
+          <div> class="min-h-screen min-w-full"
             <div class="flex flex-row-reverse w-full">
               <h1 class="text-3xl text-white uppercase whitespace-pre-wrap">
                 {{splitTitle(content[selectedCountry].title)[0]}}
@@ -69,7 +100,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       
       <!-- <img class="absolute inset-0 w-full h-full object-cover object-center" :src="require(`~/assets/img/beach-work.jpg`)" alt="Woman workcationing on the beach"> -->
       <!-- <main class="overflow-y-scroll hide-scroll-bar overscroll-y-contain snap snap-y snap-mandatory" style="height: 93vh; -ms-overflow-style: none;"> 91.125 for firefox
