@@ -29,7 +29,7 @@ export default class MapContainer extends Vue {
   getOfficeByName (courtyName:string) {
     if (this.offices) {
       const office : any = this.offices.find((x) => {
-        if (x.country === courtyName) {
+        if (x.country.toLowerCase() === courtyName.toLowerCase()) {
           this.changeCity(courtyName)
           return x.office[0]
         } else {
