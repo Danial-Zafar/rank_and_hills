@@ -6,18 +6,12 @@
         </div>
       </div>
       <div class="relative md:hidden">
-        <div class="max-w-full">
-          <img class="w-full object-cover object-center" :src="sliderImage" alt="Slider Image">
+        <div class="max-w-full" v-if="hero">
+          <img class="w-full object-cover object-center" :src="hero[selectedSlide].image" :alt="hero[selectedSlide].image_alt">
           <div class="absolute w-full h-full sm:w-full sm:h-full top-0 left-0 block bg-black bg-opacity-40">  <!--height: 16.63rem-->
             <div class="uppercase text-xl text-right text-white">
               <ul class="list-none px-3 py-4">
-                <li @click="sliderImage = require('~/assets/img/beach-work.jpg')">Singapore</li>
-                <li @click="sliderImage = require('~/assets/img/hu-jiarui.jpg')">Indonesia</li>
-                <li @click="sliderImage = require('~/assets/img/beach-work.jpg')">Malaysia</li>
-                <li @click="sliderImage = require('~/assets/img/hu-jiarui.jpg')">Mongolia</li>
-                <li @click="sliderImage = require('~/assets/img/beach-work.jpg')">Myanmar</li>
-                <li @click="sliderImage = require('~/assets/img/hu-jiarui.jpg')">Thailand</li>
-                <li @click="sliderImage = require('~/assets/img/beach-work.jpg')">Vietnam</li>
+                <li v-for="(country, index) in countries" @click="selectedSlide = index">{{country}}</li>
               </ul>
             </div>
           </div>
