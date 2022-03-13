@@ -44,7 +44,7 @@ export default {
   fontawesome: {
     component: 'fa',
     icons: {
-      // solid: true,
+      solid: true,
       brands: ['faInstagramSquare', 'faInstagram', 'faTwitterSquare', 'faFacebookSquare']
     }
   },

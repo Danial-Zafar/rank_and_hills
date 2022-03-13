@@ -1,0 +1,129 @@
+<section id="offices" class="bg-brand-background">
+    <SectionHeader title="Offices" url="#" :displayLink="false" />
+
+    <main>
+      <div class="flex flex-wrap">
+        <div v-if="offices" v-for="(office, key) in offices" @click="selectedCountry = key" class="w-40 flex-shrink flex-grow relative cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="">
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="pt-5 pl-5 justify-center text-white lg:pt-14 lg:pl-14">
+              <p class="mb-2 text-white font-serif text-xl lg:mb-4 lg:text-4xl">{{key}}</p>
+              <div class="block lg:hidden">
+                <fa class="fa-lg" :class="selectedCountry === key ? 'text-brand-orange' : 'text-brand-thumb'" :icon="['fas', 'location-dot']" />
+              </div>
+              <div class="hidden lg:block">
+                <fa class="fa-2x" :class="selectedCountry === key ? 'text-brand-orange' : 'text-brand-thumb'" :icon="['fas', 'location-dot']" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-row">
+        <div class="px-4 py-6 lg:px-14">
+          <div class="block md:hidden">
+            <img class="h-10 w-auto" :src="require('~/assets/img/logo-white.png')" alt="Rank & Hills">
+          </div>
+          <div class="mt-4 text-white" v-if="offices && offices[selectedCountry]">
+            <h1 class="text-3xl text-brand-orange font-serif md:text-5xl">
+              {{ offices[selectedCountry].offices[0].title }}
+            </h1>
+            <p class="block mt-2 font-serif md:text-xl lg:mt-5 md:hidden">PT ONG and ONG</p>
+            <ul class="mt-4 md:text-base">
+              <li v-for="line in sanitizeAddress(offices[selectedCountry].offices[0].address)">{{ line }}</li>
+            </ul>
+            <ul class="mt-4 md:text-base lg:mt-9" v-if="offices[selectedCountry].offices">
+                <li class="mt-1" v-if="offices[selectedCountry].offices[0].phone">Tel &nbsp;{{ offices[selectedCountry].offices[0].phone }}</li>
+                <li class="mt-1" v-if="offices[selectedCountry].offices[0].fax">Fax {{ offices[selectedCountry].offices[0].fax }}</li>
+            </ul>
+            <div class="block md:hidden mt-4">
+              <fa class="fa-lg text-brand-orange" :icon="['fas', 'location-dot']" />
+            </div>
+            <div class="hidden md:block mt-24">
+              <fa class="fa-2x text-brand-orange" :icon="['fas', 'location-dot']" />
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden px-14 py-6 mt-14 md:block">
+          <form  @submit.prevent="onSubmit">
+            <div class="overflow-hidden sm:rounded-md">
+              <div class="py-2">
+                <div class="grid grid-cols-12 gap-2">
+                  <div class="col-span-12">
+                    <input v-model="model.name" type="text" placeholder="Name*" name="name" id="name" autocomplete="given-name" class="pl-1 block w-full border-0 bg-transparent focus:border-transparent text-2xl text-white placeholder-brand-footer">
+                  </div>
+
+                  <div class="col-span-12">
+                    <input v-model="model.company" type="text" placeholder="Company" name="company" id="company" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
+                  </div>
+
+                  <div class="col-span-12">
+                    <input v-model="model.company" type="text" placeholder="Contact" name="company" id="company" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
+                  </div>
+
+                  <div class="col-span-12">
+                    <input v-model="model.email" type="text" placeholder="Email*" name="email" id="email" autocomplete="email" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
+                  </div>
+    
+                  <div class="col-span-12">
+                    <select v-model="model.subject" type="text" placeholder="Subject*" name="subject" id="subject" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-brand-footer placeholder-brand-footer">
+                      <option value="">Subject*</option>
+                    </select>
+                  </div>
+                  
+    
+                  <div class="col-span-12">
+                    <textarea v-model="model.comments" type="text" placeholder="Comments*" name="message" id="message"  class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer"></textarea>
+                  </div>
+
+
+                  <div class="col-start-1 col-end-5 self-end">
+                    <label for="message" class="block text-sm font-medium text-brand-footer">* Mandatory fields</label>
+                  </div>
+
+                  <div class="col-start-5 col-end-8 self-end">
+                    <label for="message" class="block text-sm font-medium text-brand-orange">Our PDPA Policy</label>
+                  </div>
+
+                  <div class="col-start-9 col-end-12">
+                    <button type="submit" class="inline-flex justify-center py-2 px-8 text-3xl font-bold text-brand-orange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-orange">
+                      Send
+                    </button>
+                    <div>
+                      <input v-model="model.subscribe_news" type="checkbox" name="newsletter" id="newsletter"  class="rounded-full bg-brand-footer focus:ring-brand-footer focus:border-brand-footer shadow-sm text-xs border-brand-footer">
+                      <label for="newsletter" class="ml-2 text-sm font-medium text-brand-footer">Subscribe to our newsletter</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </main>
+
+    <!--"hidden lg:block"-->
+    <!-- <main class="hidden lg:block">
+      <div class="grid grid-flow-col pb-20 overflow-x-auto hide-scroll-bar overscroll-x-contain gallery" style="grid-template-rows: auto auto; scrollbar-width: thin; scrollbar-color: #a6a6a6 #2d2d2d;">
+        <div v-if="projects" v-for="item in projects" class="w-96 h-72 relative border-0 flex-shrink-0 gallery-item">
+          <img :src="item.thumbnail" class="object-contain h-full w-full" />
+          <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
+            <div class="mt-20 grid grid-rows-2 justify-center text-white text-sm">
+              <div class="px-16 row-span-1 flex justify-start flex-wrap">
+                <div v-if="item.service" v-for="service in item.service" class="items-center">
+                  <span>&nbsp;&bull;&nbsp;</span> {{service}}
+                </div>
+                <span class="text-brand-orange">&nbsp;&bull;&nbsp;</span><span class="uppercase">{{item.country}}</span>
+                <div class="py-2 row-span-1 flex flex-wrap">
+                  <h1 class="text-4xl font-medium text-white font-serif">{{item.title}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main> -->
+  </section>
