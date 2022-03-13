@@ -18,7 +18,7 @@ export default class Offices extends Vue {
     contact: null,
     comments: null,
     email: null,
-    subject: null,
+    subject: "",
     subscribe_news: null
   }
 
@@ -44,5 +44,14 @@ export default class Offices extends Vue {
     const matches = [...address.matchAll(/\<p\>(.*)\<\/p\>/g)]
     const match = matches.map(match => match[1])[0]
     return match.split('<br />')
+  }
+
+  async onSubmit () {
+    try {
+      const resp = await this.$axios.post('https://api.rankine-hill.com/feedback/', this.model)
+      console.log('resp', resp)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
