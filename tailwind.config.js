@@ -21,12 +21,16 @@ module.exports = {
           scroll: '#2d2d2d',
           contact: '#333333',
           footer: '#656565',
-          marker: '#bdbdbd'
+          marker: '#bdbdbd',
+          about: '#4d4d4d'
         }
       },
       fontFamily: {
         sans: ['OpenSans', ...defaultTheme.fontFamily.sans],
         serif: ['Cormorant-Garamond', ...defaultTheme.fontFamily.serif]
+      },
+      maxWidth: {
+        '1/2': '50%'
       }
     }
   },
