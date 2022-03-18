@@ -29,9 +29,10 @@ export default class Offices extends Vue {
   async getOfficesContent () {
     try {
       const resp = (await this.$axios.get('https://api.rankine-hill.com/offices/')).data.result
+      console.log('resp', resp)
       this.offices = resp
         .reduce((obj: any, item: any) => {
-          obj[item.country] = { url: item.url, offices: item.office }
+          obj[item.country] = { url: item.url, offices: item.office, image: item.image }
           return obj
         }, {})
       console.log('offices', this.offices)

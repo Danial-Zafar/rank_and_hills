@@ -21,7 +21,7 @@ export default class Offices extends Vue {
     try {
       const resp = (await this.$axios.get('https://api.rankine-hill.com/about/')).data.result
       this.about = resp
-      console.log('resp', resp)
+      /* console.log('resp', resp) */
     } catch (err) {
       console.log(err)
     }
@@ -30,7 +30,6 @@ export default class Offices extends Vue {
   sanitizeText (address: string) {
     const matches = [...address.matchAll(/\<p\>(.*)\<\/p\>/g)]
     const match = matches.map(match => match[1])
-    // console.log('match', match)
     return match
   }
 }
