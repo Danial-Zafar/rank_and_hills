@@ -44,18 +44,16 @@
         </div>
      </div>
 
-
-
-     <div class="grid md:grid-cols-2">
-       <div>
-        <a href="google.com"  class=" text-brand-footer"> 
-           <fa class="pt-10 text-brand-footer fa-5x"  :icon="['fas', 'angle-left']" />
-        </a>
+     <div class="grid md:grid-cols-2 py-10">
+       <div class="relative">
+        <button @click="onClickBack()"  class="left-0 text-brand-footer"> 
+           <fa class="text-brand-footer fa-5x"  :icon="['fas', 'angle-left']" />
+        </button>
        </div>
 
        <div>
-          <button  @click="nextProject(projectDtails.next_project_url)" class=" text-brand-footer float-right "> next
-            <fa class="pt-10 pr-7 text-brand-footer fa-5x "  :icon="['fas', 'angle-right']" />
+          <button  @click="nextProject(projectDtails.next_project_url)" class="text-brand-footer float-right"> NEXT
+            <fa class="pr-7 text-brand-footer fa-5x align-middle "  :icon="['fas', 'angle-right']" />
           </button>
        </div>
      </div>

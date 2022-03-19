@@ -14,7 +14,7 @@ export default class ProjectDetails extends Vue {
   pslug: string = ''
 
   created () {
-    this.pslug = '' + this.$route.query['pslug']
+    this.pslug = '' + this.$route.query.pslug
 
     this.getProjectDtailsContent()
   }
@@ -24,7 +24,11 @@ export default class ProjectDetails extends Vue {
       const resp = (await this.$axios.get(`https://api.rankine-hill.com/project/${this.pslug}`)).data.result[0]
       this.projectDtails = resp
 
-      let matches: string = this.projectDtails.body_text
+      let matches: string = ''
+      if (this.projectDtails.body_text) {
+        matches = this.projectDtails.body_text
+      }
+
       const regex = /(<([^>]+)>)/ig
 
       matches = matches.replace(regex, '')
@@ -38,13 +42,15 @@ export default class ProjectDetails extends Vue {
     }
   }
 
-  fun () {
-    console.log('mazay')
+  onClickBack () {
+    this.$router.push('/offices')
   }
 
   nextProject (pslug: string) {
-    this.pslug = pslug.replace('https://www.rankine-hill.com/project/', '')
-    this.getProjectDtailsContent()
+    if (pslug) {
+      this.pslug = pslug.replace('https://www.rankine-hill.com/project/', '')
+      this.getProjectDtailsContent()
+    }
     // div.relative>fa.absolute.bottom-0.left-0
     // div.relative>fa.absolute.bottom-0.right-0
   }
