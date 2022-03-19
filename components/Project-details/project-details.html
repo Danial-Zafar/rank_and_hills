@@ -1,20 +1,73 @@
-<!-- <section id="projectdetails" class="bg-brand-background">
+<section id="projectdetails" class="bg-brand-background">
   <SectionHeader title="Project Details" url="#" :displayLink="false" class="block md:hidden" />
 
   <main>
-    <div class="grid md:grid-cols-2">
+    <div class="pl-16 grid md:grid-cols-2">
+   <div>
+      <p class="mb-2 pt-7  text-white font-serif text-xl lg:mb-4 lg:text-4xl">
+      {{projectDtails.title}}
+    </p>
+
      <div class="grid md:grid-cols-2">
         <div>
-          <p class="mb-2 text-white font-serif text-xl lg:mb-4 lg:text-4xl">Just and example</p>
+         
+          <p v-if="projectDtails.client_name" class="mt-5 px-1 text-xs text-brand-footer">
+            Client
+          </p>
+          <p v-if="projectDtails.client_name" class="mt-3 pl-1 text-white sm:mt-4 text-sm">{{projectDtails.client_name}}</p>
+
+          <p v-if="projectDtails.site_area" class="mt-5 px-1 text-xs text-brand-footer">
+            Site Area
+          </p>
+          <p v-if="projectDtails.site_area" class="mt-3 pl-1 text-white sm:mt-4 text-sm">{{projectDtails.site_area}}</p>
+
+          <p v-if="projectDtails.gfa" class="mt-5 px-1 text-xs text-brand-footer">
+            Gross Floor Area
+          </p>
+          <p v-if="projectDtails.gfa" class="mt-3 pl-1 text-white sm:mt-4 text-sm">{{projectDtails.gfa}}</p>
+
+          <p v-if="projectDtails.service" class="mt-5 px-1 text-xs text-brand-footer">
+            Services
+          </p>
+
+          <p v-if="projectDtails.service" v-for="(service, index) in projectDtails.service" class="mt-3 pl-1 text-white sm:mt-4 text-sm" v-html="service"></p>
+
+          <p v-if="projectDtails.completion_date" class="mt-5 px-1 text-xs text-brand-footer">
+            Completion
+          </p>
+          <p v-if="projectDtails.completion_date" class="mt-3 pl-1 text-white sm:mt-4 text-sm">{{projectDtails.completion_date}}</p>
         </div>
         <div>
-          
+          <p  v-if="projectDtails.body_text" class="px-7 mt-3 text-white sm:mt-4 text-sm">
+            {{projectDtails.body_text}}
+            </p>
         </div>
      </div>
-     <div>
-       
+
+
+
+     <div class="grid md:grid-cols-2">
+       <div>
+        <a href="google.com"  class=" text-brand-footer"> 
+           <fa class="pt-10 text-brand-footer fa-5x"  :icon="['fas', 'angle-left']" />
+        </a>
+       </div>
+
+       <div>
+          <button  @click="nextProject(projectDtails.next_project_url)" class=" text-brand-footer float-right "> next
+            <fa class="pt-10 pr-7 text-brand-footer fa-5x "  :icon="['fas', 'angle-right']" />
+          </button>
+       </div>
+     </div>
+
+
+    </div>
+     <div v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
+      
+      <img  v-for="(image, index) in projectDtails.image.gallery" class="inset-0 w-full  object-cover" :src="image.url">
+      
      </div>
     </div>
   </main>
 
-</section> -->
+</section>

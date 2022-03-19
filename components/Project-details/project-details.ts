@@ -9,27 +9,43 @@ import SectionHeader from '../SectionHeader/section-header'
   }
 })
 export default class ProjectDetails extends Vue {
-  about: any = []
+  projectDtails: any = []
   imageUrl : string = ''
-  bodyTextList: string[] = []
+  pslug: string = ''
 
-  mounted () {
-    this.getAboutContent()
+  created () {
+    this.pslug = '' + this.$route.query['pslug']
+
+    this.getProjectDtailsContent()
   }
 
-  async getAboutContent () {
+  async getProjectDtailsContent () {
     try {
-      const resp = (await this.$axios.get('https://api.rankine-hill.com/about/')).data.result
-      this.about = resp
-      /* console.log('resp', resp) */
+      const resp = (await this.$axios.get(`https://api.rankine-hill.com/project/${this.pslug}`)).data.result[0]
+      this.projectDtails = resp
+
+      let matches: string = this.projectDtails.body_text
+      const regex = /(<([^>]+)>)/ig
+
+      matches = matches.replace(regex, '')
+
+      this.projectDtails = {
+        ...this.projectDtails,
+        body_text: matches
+      }
     } catch (err) {
       console.log(err)
     }
   }
 
-  sanitizeText (address: string) {
-    const matches = [...address.matchAll(/\<p\>(.*)\<\/p\>/g)]
-    const match = matches.map(match => match[1])
-    return match
+  fun () {
+    console.log('mazay')
+  }
+
+  nextProject (pslug: string) {
+    this.pslug = pslug.replace('https://www.rankine-hill.com/project/', '')
+    this.getProjectDtailsContent()
+    // div.relative>fa.absolute.bottom-0.left-0
+    // div.relative>fa.absolute.bottom-0.right-0
   }
 }
