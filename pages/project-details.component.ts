@@ -2,13 +2,14 @@ import { Vue, Component } from 'nuxt-property-decorator'
 
 import Header from '@/components/Header/header.vue'
 import Footer from '@/components/Footer/footer.vue'
-import Offices from '@/components/Offices/offices.vue'
+import ProjectDetails from '@/components/Project-details/project-details.vue'
 
 @Component({
   components: {
     Header,
-    Offices,
+    ProjectDetails,
     Footer
   }
 })
-export default class OfficesComponent extends Vue {}
+
+export default class ProjectDetailsComponent extends Vue {}

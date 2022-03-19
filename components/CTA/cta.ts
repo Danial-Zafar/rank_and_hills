@@ -114,7 +114,6 @@ export default class CTA extends Vue {
       this.hero = await (await this.$axios.get('https://api.rankine-hill.com/homeslideshow/')).data.result[0]?.gallery
       if (this.hero) {
         this.countries = this.hero.map((slide: { country: any }) => slide.country)
-        console.log('hero', this.hero)
       }
     } catch (err) {
       console.log(err)
