@@ -13,11 +13,31 @@ export default class ProjectDetails extends Vue {
   imageUrl : string = ''
   pslug: string = ''
 
+   
   created () {
     this.pslug = '' + this.$route.query.pslug
 
     this.getProjectDtailsContent()
   }
+
+  head(){
+    return {
+      title: 'dummy title',
+      // title: this.projectDtails.meta_title,
+      meta: [
+        {
+          hid: 'description',
+          description: 'dummy decritption'
+          // description: this.projectDtails.meta_description
+        },
+        {
+          hid: 'keywords',
+          keywords: 'WISMA GEYLANG SERAI, Singapore, Civic, M&E Engineering'
+          // keywords: this.projectDtails.meta_keyword
+        }
+      ]
+    }
+  } 
 
   async getProjectDtailsContent () {
     try {
