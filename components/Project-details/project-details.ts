@@ -43,7 +43,7 @@ export default class ProjectDetails extends Vue {
   }
 
   onClickBack () {
-    this.$router.push('/offices')
+    this.$router.push('/projects')
   }
 
   nextProject (pslug: string) {
