@@ -1,4 +1,4 @@
-<header class="bg-brand-dark border-t border-b">    <!-- Change this to border-y-[0.5px] for v3 -->
+<header class="relative bg-brand-dark border-t border-b">    <!-- Change this to border-y-[0.5px] for v3 -->
   <div class="max-w-full py-6 px-4 sm:px-6 lg:px-14 flex justify-between">
     <h1 class="self-start text-4xl md:text-6xl font-medium text-white font-serif">
       {{title}}
@@ -6,5 +6,56 @@
     <div v-if="displayLink" class="uppercase text-brand-orange text-sm justify-items-end self-end">
       <a :href="url">view more</a>
     </div>
+    
+    <div v-if="displayFilter" class="uppercase text-brand-orange text-sm justify-items-end self-end">
+      <a @click="displayFilterModal = true">Filter</a>
+    </div>
+    <div class="absolute top-0 inset-x-0 transition transform origin-top-right lg:hidden h-screen" :class="displayFilterModal ? 'block' : 'hidden'">
+      <div class="bg-brand-dark h-full">
+        <div class="pt-5 pb-6 px-5">
+          <div class="flex items-center justify-between">
+            <div></div>
+            <div class="-mr-2">
+              <button type="button" @click="displayFilterModal = false" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <span class="sr-only">Close menu</span>
+                <!-- Heroicon name: outline/x -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="-mt-10 w-2/3">
+            <div class="grid gap-y-8">
+              <div class="text-white font-medium">
+                <ul class="mb-5 list-none text-sm md:text-base">
+                  <li class="cursor-pointer text-4xl font-medium font-serif" @click="$emit('updatedFilterBy', 'type')" :class="filterBy == 'type' ? 'text-brand-orange' : ''">Type</li>
+                  <li class="cursor-pointer text-4xl font-medium font-serif" @click="$emit('updatedFilterBy', 'service')" :class="filterBy == 'service' ? 'text-brand-orange' : ''">Service</li>
+                  <li class="cursor-pointer text-4xl font-medium font-serif" @click="$emit('updatedFilterBy', 'country')" :class="filterBy == 'country' ? 'text-brand-orange' : ''">Country</li>
+                </ul>
+                <ul class="list-none text-sm" v-if="filterOptions && filterOptions[0] && filterBy == 'country'">
+                  <li class="cursor-pointer" :class="filterCountry == 'All' ? 'text-brand-orange' : ''" @click="$emit('filter', 'filterCountry', 'All')">All</li>
+                  <li class="cursor-pointer" v-for="country in filterOptions[0].country" :class="filterCountry == country.code ? 'text-brand-orange' : ''" @click="$emit('filter', 'filterCountry', country.code)">{{country.name}}</li>
+                </ul>
+    
+                <ul class="list-none text-sm" v-if="filterOptions && filterOptions[0]  && filterBy == 'type'">
+                  <li class="cursor-pointer" v-for="type in filterOptions[0].type" :class="filterType == type.slug ? 'text-brand-orange' : ''" @click="$emit('filter', 'filterType', type.slug)">{{type.name}}</li>
+                </ul>
+    
+                <ul class="list-none text-sm" v-if="filterOptions && filterOptions[0]  && filterBy == 'service'">
+                  <li class="cursor-pointer" v-for="service in filterOptions[0].service" :class="filterService == service.slug ? 'text-brand-orange' : ''" @click="$emit('filter', 'filterService', service.slug)">{{service.name}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div v-if="subTitle" class="max-w-full pb-6 pt-0 py-6 px-4 sm:px-6 lg:px-14 flex justify-between">
+    <p class="self-start text-sm md:text-base font-medium text-white">
+      {{subTitle}}
+    </p>
   </div>
 </header>

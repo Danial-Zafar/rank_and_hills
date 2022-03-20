@@ -36,7 +36,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['active']
+      backgroundColor: ['active'],
+      tranform: ['group-hover'],
+      translate: ['group-hover']
     }
   },
   plugins: [
