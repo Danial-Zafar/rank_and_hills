@@ -3,44 +3,28 @@
 
   <main>
     <div class="block md:hidden">
-      <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel">
-        <div class="carousel-inner relative w-full overflow-hidden">
-          <div style="margin-right: -100%; backface-visibility: hidden;" class="transform ease-in-out duration-1000 active relative float-left w-full">
-            <img
-              src="https://www.rankine-hill.com/uploads/project/oasia-hotel-downtown/Oasia_Downtown-7315.jpg"
-              class="block w-full"
-              alt="Wild Landscape"
-            />
-          </div>
-          <div style="margin-right: -100%; backface-visibility: hidden;" class="hidden transform ease-in-out duration-1000 relative float-left w-full">
-            <img
-              src="https://www.rankine-hill.com/uploads/project/oasia-hotel-downtown/Oasia_Downtown-7315.jpg"
-              class="block w-full"
-              alt="Camera"
-            />
-          </div>
-          <div style="margin-right: -100%; backface-visibility: hidden;" class="hidden transform ease-in-out duration-1000 relative float-left w-full">
-            <img
-              src="https://www.rankine-hill.com/uploads/project/oasia-hotel-downtown/Oasia_Downtown-7571_1.sized.jpg"
-              class="block w-full"
-              alt="Exotic Fruits"
-            />
+      <div id="carouselExampleControls" class="carousel slide relative">
+        <div class="carousel-inner relative w-full overflow-hidden" v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
+          <div class="carousel-item relative float-left w-full" v-for="(image, index) in projectDtails.image.gallery" :class="index === activeSlide ? active : 'hidden'">
+            <img :src="image.url" class="block w-full" :alt="image.image_alt" />
           </div>
         </div>
         <button
           class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
           type="button"
+          @click="prevSlide()"
         >
-          <!-- <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span> -->
-          <svg class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+          <!-- <svg class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> -->
           <span class="hidden">Previous</span>
         </button>
         <button
           class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
           type="button"
+          @click="nextSlide()"
         >
-          <!-- <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span> -->
-          <svg class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+          <!-- <svg class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> -->
           <span class="hidden">Next</span>
         </button>
       </div>
@@ -96,14 +80,16 @@
           <div class="absolute bottom-0 left-0">
             <div class="px-4 py-6 md:px-10">
               <button @click="onClickBack()" class="text-brand-footer">
-                <fa class="text-brand-footer fa-3x md:fa-5x" :icon="['fas', 'angle-left']" />
+                <span class="block md:hidden"><fa class="text-brand-footer fa-3x" :icon="['fas', 'angle-left']" /></span>
+                <span class="hidden md:block"><fa class="text-brand-footer fa-5x" :icon="['fas', 'angle-left']" /></span>
               </button>
             </div>
           </div>
           <div class="absolute bottom-0 right-0">
             <div class="px-4 py-6 md:px-10">
-              <button @click="nextProject(projectDtails.next_project_url)" class="text-brand-footer"> Next
-                <fa class="text-brand-footer fa-3x md:fa-5x align-middle" :icon="['fas', 'angle-right']" />
+              <button @click="nextProject(projectDtails.next_project_url)" class="text-brand-footer">
+                <span class="block md:hidden">Next<fa class="text-brand-footer fa-3x align-middle" :icon="['fas', 'angle-right']" /></span>
+                <span class="hidden md:block">Next<fa class="text-brand-footer fa-5x align-middle" :icon="['fas', 'angle-right']" /></span>
               </button>
             </div>
           </div>
