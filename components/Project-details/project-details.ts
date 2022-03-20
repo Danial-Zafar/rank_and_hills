@@ -16,29 +16,30 @@ export default class ProjectDetails extends Vue {
   created () {
     this.pslug = '' + this.$route.query.pslug
 
-    this.getProjectDtailsContent()
+   this.getProjectDtailsContent()
   }
 
   head(){
     return {
-      title: 'dummy title',
-      // title: this.projectDtails.meta_title,
+      // title: 'dummy title',
+       title: this.projectDtails.meta_title,
       meta: [
         {
           hid: 'description',
-          description: 'dummy decritption'
-          // description: this.projectDtails.meta_description
+          //description: 'dummy decritption'
+          description: this.projectDtails.meta_description
         },
         {
           hid: 'keywords',
-          keywords: 'WISMA GEYLANG SERAI, Singapore, Civic, M&E Engineering'
-          // keywords: this.projectDtails.meta_keyword
+          //keywords: 'WISMA GEYLANG SERAI, Singapore, Civic, M&E Engineering'
+          keywords: this.projectDtails.meta_keyword
         }
       ]
     }
   } 
 
   async getProjectDtailsContent () {
+    
     try {
       const resp = (await this.$axios.get(`https://api.rankine-hill.com/project/${this.pslug}`)).data.result[0]
       this.projectDtails = resp
