@@ -22,6 +22,7 @@ export default class Contact extends Vue {
   created () {
     if (this.officeModel?.country) {
       this.cityName = this.officeModel?.country
+      this.officeModel = this.removeTag(this.officeModel)
     }
   }
 
@@ -29,5 +30,11 @@ export default class Contact extends Vue {
     this.cityName = cityName
     this.cityImg = require(`~/assets/img/${cityName}.png`)
     this.$emit('getOfficeByName', cityName)
+  }
+
+  removeTag (officeModel: any) {
+    const regex = /(<([^>]+)>)/ig
+    officeModel.address = officeModel.address.replace(regex, " ")
+    return officeModel
   }
 }
