@@ -1,0 +1,16 @@
+/* TEAM */
+Software Engineer: Abdul Fatir.
+Site: https://github.com/ichigo92, https://www.fiverr.com/afatir92
+Location: London, UK.
+
+Software Engineer: Danial Zafar.
+Site: https://github.com/Danial-Zafar, https://www.fiverr.com/danial_zafar07
+Location: Rawalpindi, Pakistan.
+  							
+/* THANKS */
+Name: Danial Zafar
+                               
+/* SITE */
+Last update: 2022/03/21 
+Standards: HTML5, CSS3, 
+Components: Tailwind CSS, Nuxt       
