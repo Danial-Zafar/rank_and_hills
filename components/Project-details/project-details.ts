@@ -16,7 +16,7 @@ export default class ProjectDetails extends Vue {
   activeSlide: number = 0
 
   created () {
-    this.pslug = '' + this.$route.query.pslug
+    this.pslug = this.$route.query.pslug.toString()
 
     this.getProjectDtailsContent()
   }
