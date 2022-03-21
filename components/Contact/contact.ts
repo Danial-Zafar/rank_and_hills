@@ -16,7 +16,7 @@ export default class Contact extends Vue {
   // @Prop({ default: 'singapore' }) city !: string
   @Prop({ default!: null }) officeModel: any
   @Prop({ default!: null }) offices: any
-  cityName = ''
+  cityName = 'Singapore'
   cityImg = require('~/assets/img/singapore.png')
 
   created () {
@@ -28,7 +28,7 @@ export default class Contact extends Vue {
 
   onClickchangeCity (cityName: string) {
     this.cityName = cityName
-    this.cityImg = require(`~/assets/img/${cityName}.png`)
+    this.cityImg = require(`~/assets/img/${cityName.toLowerCase()}.png`)
     this.$emit('getOfficeByName', cityName)
   }
 

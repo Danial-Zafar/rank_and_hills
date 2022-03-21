@@ -12,7 +12,7 @@ export default {
   // use environment variable later on
   data () {
     return {
-      accessToken: 'pk.eyJ1IjoiYWZhdGlyIiwiYSI6ImNreWJtaWg1cjBna2cyeG9mZjNsNGc3ZjQifQ._cgXfiK-9djLaT6iZImvKw',
+      accessToken: 'pk.eyJ1Ijoib25nLW9uZy0zNjAtY29uc3VsdGFuY3kiLCJhIjoiY2t5OGNqamhlMWR3azJ4b245bnFyYmEzMiJ9.1hdM9q9jIV57BTQLaXckQw',// 'pk.eyJ1Ijoib25nLW9uZy0zNjAtY29uc3VsdGFuY3kiLCJhIjoiY2t5OGNqamhlMWR3azJ4b245bnFyYmEzMiJ9.1hdM9q9jIV57BTQLaXckQw', // 'pk.eyJ1IjoiYWZhdGlyIiwiYSI6ImNreWJtaWg1cjBna2cyeG9mZjNsNGc3ZjQifQ._cgXfiK-9djLaT6iZImvKw',
       map: {},
       city: this.selectedCity,
       locatonCordinate: {
@@ -37,7 +37,7 @@ export default {
       mapboxgl.accessToken = this.accessToken
       this.map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v10',
+        style: 'mapbox://styles/ong-ong-360-consultancy/cksfj9ozy2ozj17nu0ukvjstq',
         zoom: 3.25,
         center: [103.808052586332, 1.3516161224392]
       })
