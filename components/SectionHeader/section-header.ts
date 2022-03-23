@@ -11,7 +11,9 @@ export default class SectionHeader extends Vue {
   @Prop({ default: false }) displayLink!: boolean
   @Prop({ default: false }) displayFilter!: boolean
 
-  @Prop({ default: 'country' }) filterBy!: string
+  @Prop({ default: false }) filterByType!: boolean
+  @Prop({ default: false }) filterByService!: boolean
+  @Prop({ default: false }) filterByCountry!: boolean
   @Prop({ default: null }) filterOptions!: any
   @Prop({ default: 'All' }) filterCountry!: string
   @Prop({ default: null }) filterType!: string

@@ -5,7 +5,7 @@
       <div class="grid grid-flow-col pb-5 overflow-x-auto hide-scroll-bar overscroll-x-contain gallery" style="grid-template-rows: auto auto; scrollbar-width: thin; scrollbar-color: #a6a6a6 #2d2d2d;">
         <div v-if="projects" v-for="item in projects" class="w-52 flex-shrink-0 bg-brand-dark gallery-item">
               <!-- <img class="rounded-t-lg" :src="item.thumbnail" /> -->
-            <img :src="item.thumbnail" class="h-40 object-cover" />
+            <img :src="item.thumbnail" loading="lazy" class="h-40 w-full object-fill" />
             <div class="py-4 px-5">
                 <div>
                     <p class="text-brand-orange font-bold text-xs">{{item.title}}</p>
@@ -19,7 +19,7 @@
     <main class="hidden lg:block">
       <div class="grid grid-flow-col pb-20 overflow-x-auto hide-scroll-bar overscroll-x-contain gallery" style="grid-template-rows: auto auto; scrollbar-width: thin; scrollbar-color: #a6a6a6 #2d2d2d;">
         <div v-if="projects" v-for="item in projects" class="w-[27rem] h-72 relative border-0 flex-shrink-0 gallery-item cursor-pointer" @click="$router.push({path: 'project-details', query: { pslug: item.url.split('/').slice(4, 6).join('/')}})">
-          <img :src="item.thumbnail" class="object-fill h-full w-full" />
+          <img :src="item.thumbnail" loading="lazy" class="object-fill h-full w-full" />
           <div class="px-12 py-10 text-white flex flex-col place-content-end absolute w-full h-full top-0 left-0 bg-black bg-opacity-40">
             <div class="items-center">
               <template v-for="(service, index) in item.service">

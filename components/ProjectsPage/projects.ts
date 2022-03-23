@@ -18,6 +18,10 @@ export default class Projects extends Vue {
   filterService: string | null = null
   filterBy: string = 'country'
 
+  filterByType = false
+  filterByService = false
+  filterByCountry = false
+
   mounted () {
     this.getFilterOptions()
     this.getProjects()
@@ -76,16 +80,16 @@ export default class Projects extends Vue {
   async filterProjects () {
     let url = this.url
 
-    if (this.filterBy === 'type') {
-      url = this.updateQueryParameter(url, this.filterBy, this.filterType)
+    if (this.filterByType) {
+      url = this.updateQueryParameter(url, 'type', this.filterType)
     }
-    if (this.filterBy === 'service') {
-      url = this.updateQueryParameter(url, this.filterBy, this.filterService)
+    if (this.filterByService && this.filterService !== null) {
+      url = this.updateQueryParameter(url, 'service', this.filterService)
     }
-    if (this.filterBy === 'country') {
-      url = this.updateQueryParameter(url, this.filterBy, this.filterCountry)
+    if (this.filterByCountry && this.filterCountry !== 'All') {
+      url = this.updateQueryParameter(url, 'country', this.filterCountry)
     }
-
+    console.log('filterProjects URL ', url)
     try {
       this.filteredProjects = (await this.$axios.get(`${url}`)).data.result
     } catch (err) {
@@ -93,7 +97,20 @@ export default class Projects extends Vue {
     }
   }
 
-  updatedFilterBy (filterBy: string) {
+  updateFilterBy (filterBy: string) {
     this.filterBy = filterBy
+    switch (filterBy) {
+      case 'type':
+        this.filterByType = !this.filterByType
+        break
+      case 'service':
+        this.filterByService = !this.filterByService
+        break
+      case 'country':
+        this.filterByCountry = !this.filterByCountry
+        break
+      default:
+        break
+    }
   }
 }
