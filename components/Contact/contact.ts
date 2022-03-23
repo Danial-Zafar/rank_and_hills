@@ -22,7 +22,7 @@ export default class Contact extends Vue {
   created () {
     if (this.officeModel?.country) {
       this.cityName = this.officeModel?.country
-      this.officeModel = this.removeTag(this.officeModel)
+     // this.officeModel = this.removeTag(this.officeModel)
     }
   }
 
@@ -32,9 +32,9 @@ export default class Contact extends Vue {
     this.$emit('getOfficeByName', cityName)
   }
 
-  removeTag (officeModel: any) {
-    const regex = /(<([^>]+)>)/ig
-    officeModel.address = officeModel.address.replace(regex, " ")
-    return officeModel
+  sanitizeAddress (address: string) {
+    const matches = [...address.matchAll(/\<p\>(.*)\<\/p\>/g)]
+    const match = matches.map(match => match[1])[0]
+    return match.split('<br />')
   }
 }
