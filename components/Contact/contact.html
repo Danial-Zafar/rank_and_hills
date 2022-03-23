@@ -51,10 +51,10 @@
             <Map :selectedCity="cityName" :geocoordinate="officeModel.geocoordinate" />
             <div class="absolute w-full h-full top-0 left-0 block">
                 <div class="px-10 py-10 text-2xl text-right text-brand-thumb">
-                    <ul v-for="item in offices" class="list-none">
-                        <li class="cursor-pointer uppercase" @click="onClickchangeCity(item.country)" :class="cityName === item.country ? 'text-brand-orange' : ''">{{item.country}}</li>
+                    <ul v-for="(item, index) in offices" class="list-none" :class="index !== 0 ? 'mt-6': ''">
+                        <li class="tracking-widest cursor-pointer uppercase" @click="onClickchangeCity(item.country)" :class="cityName === item.country ? 'text-brand-orange' : ''">{{item.country}}</li>
                     </ul>
-                    <div class="relative mt-80">
+                    <div class="relative mt-64">
                         <div class="absolute bottom-0 right-0 text-5xl text-white font-serif">We Understand Asia</div>
                     </div>
                 </div>

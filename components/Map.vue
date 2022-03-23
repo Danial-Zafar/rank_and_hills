@@ -39,7 +39,8 @@ export default {
         container: 'map',
         style: 'mapbox://styles/ong-ong-360-consultancy/cksfj9ozy2ozj17nu0ukvjstq',
         zoom: 3.25,
-        center: [103.808052586332, 1.3516161224392]
+        center: [103.808052586332, 1.3516161224392],
+        attributionControl: false
       })
 
       this.addMarker()

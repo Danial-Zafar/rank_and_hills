@@ -51,30 +51,31 @@
               <div class="py-2">
                 <div class="grid grid-cols-12 gap-2">
                   <div class="col-span-12">
-                    <input v-model="model.name" type="text" placeholder="Name*" name="name" id="name" autocomplete="given-name" class="pl-1 block w-full border-0 bg-transparent focus:border-transparent text-2xl text-white placeholder-brand-footer">
+                    <input v-model="model.name" type="text" placeholder="Name*" name="name" id="name" autocomplete="given-name" class="pl-1 block w-full border-0 bg-transparent focus:ring-transparent focus:border-transparent text-2xl text-white placeholder-brand-footer">
                   </div>
 
                   <div class="col-span-12">
-                    <input v-model="model.company" type="text" placeholder="Company" name="company" id="company" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
+                    <input v-model="model.company" type="text" placeholder="Company" name="company" id="company" class="pl-1 focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
                   </div>
 
                   <div class="col-span-12">
-                    <input v-model="model.contact" type="text" placeholder="Contact" name="contact" id="contact" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
+                    <input v-model="model.contact" type="text" placeholder="Contact" name="contact" id="contact" class="pl-1 focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
                   </div>
 
                   <div class="col-span-12">
-                    <input v-model="model.email" type="text" placeholder="Email*" name="email" id="email" autocomplete="email" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
+                    <input v-model="model.email" type="text" placeholder="Email*" name="email" id="email" autocomplete="email" class="pl-1 focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer">
                   </div>
     
                   <div class="col-span-2">
-                    <select v-model="model.subject" type="text" placeholder="Subject*" name="subject" id="subject" class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-brand-footer placeholder-brand-footer">
+                    <select v-model="model.subject" type="text" placeholder="Subject*" name="subject" id="subject" class="pl-1 focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-2xl text-brand-footer placeholder-brand-footer">
                       <option value="">Subject*</option>
+                      <option v-for="subject in subjects" :value="subject.id">{{subject.subject}}</option>
                     </select>
                   </div>
                   
     
                   <div class="col-span-12">
-                    <textarea v-model="model.comments" type="text" placeholder="Comments*" name="comments" id="comments"  class="pl-1 focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer"></textarea>
+                    <textarea v-model="model.comments" type="text" placeholder="Comments*" name="comments" id="comments"  class="pl-1 focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-2xl text-white placeholder-brand-footer"></textarea>
                   </div>
 
 
@@ -91,7 +92,7 @@
                       Send
                     </button>
                     <div>
-                      <input v-model="model.subscribe_news" type="checkbox" name="newsletter" id="newsletter"  class="rounded-full bg-brand-footer focus:ring-brand-footer focus:border-brand-footer shadow-sm text-xs border-brand-footer">
+                      <input v-model="model.subscribe_news" type="checkbox" name="newsletter" id="newsletter"  class="rounded-full checked:bg-brand-orange bg-brand-footer focus:ring-brand-footer focus:border-brand-footer shadow-sm text-xs border-brand-footer">
                       <label for="newsletter" class="ml-2 text-sm font-medium text-brand-footer">Subscribe to our newsletter</label>
                     </div>
                   </div>

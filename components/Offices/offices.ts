@@ -10,6 +10,7 @@ import SectionHeader from '../SectionHeader/section-header'
 })
 export default class Offices extends Vue {
   offices: any = null
+  subjects: any[] | null = null
   selectedCountry: string = 'Singapore'
 
   model = {
@@ -23,7 +24,19 @@ export default class Offices extends Vue {
   }
 
   mounted () {
+    this.getSubjects()
     this.getOfficesContent()
+  }
+
+  async getSubjects () {
+    try {
+      const resp = (await this.$axios.get('https://api.rankine-hill.com/feedback/')).data.result
+      this.subjects = resp
+
+      console.log('subjects', this.subjects)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   async getOfficesContent () {

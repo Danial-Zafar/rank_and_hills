@@ -182,31 +182,31 @@
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="name" class="block text-sm font-medium text-white uppercase">Name</label> -->
-                      <input v-model="model.name" type="text" placeholder="NAME" name="name" id="name" autocomplete="given-name" class="block w-full border-0 bg-transparent focus:border-transparent text-white placeholder-white sm:text-sm">
+                      <input v-model="model.name" type="text" placeholder="NAME" name="name" id="name" autocomplete="given-name" class="block w-full border-0 bg-transparent focus:ring-transparent focus:border-transparent text-white placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="subject" class="block text-sm font-medium text-white uppercase">Designation</label> -->
-                      <input  v-model="model.subject" type="text" placeholder="SUBJECT" name="subject" id="subject" class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
+                      <input  v-model="model.subject" type="text" placeholder="SUBJECT" name="subject" id="subject" class="focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="company" class="block text-sm font-medium text-white uppercase">Company</label> -->
-                      <input v-model="model.company" type="text" placeholder="COMPANY" name="company" id="company" class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
+                      <input v-model="model.company" type="text" placeholder="COMPANY" name="company" id="company" class="focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6 sm:col-span-3">
                       <!-- <label for="email" class="block text-sm font-medium text-white uppercase">Email</label> -->
-                      <input v-model="model.email" type="text" placeholder="EMAIL" name="email" id="email" autocomplete="email" class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
+                      <input v-model="model.email" type="text" placeholder="EMAIL" name="email" id="email" autocomplete="email" class="focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm">
                     </div>
       
                     <div class="col-span-6">
                       <!-- <label for="message" class="block text-sm font-medium text-white uppercase">Message</label> -->
-                      <textarea v-model="model.comments" type="text" placeholder="MESSAGE" name="message" id="message"  class="focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm"></textarea>
+                      <textarea v-model="model.comments" type="text" placeholder="MESSAGE" name="message" id="message"  class="focus:ring-transparent focus:border-transparent block w-full border-0 bg-transparent text-white placeholder-white sm:text-sm"></textarea>
                     </div>
 
                     <div class="flex items-center col-span-6">
-                      <input v-model="model.subscribe_news" type="checkbox" name="newsletter" id="newsletter"  class="ml-1 rounded-full bg-brand-footer focus:ring-brand-footer focus:border-brand-footer block shadow-sm sm:text-sm border-brand-footer">
+                      <input v-model="model.subscribe_news" type="checkbox" name="newsletter" id="newsletter"  class="ml-1 rounded-full checked:bg-brand-orange bg-brand-footer focus:ring-brand-footer focus:border-brand-footer block shadow-sm sm:text-sm border-brand-footer">
                       <label for="newsletter" class="ml-2 block text-sm font-medium text-brand-footer">Subscribe to our newsletter</label>
                     </div>
 

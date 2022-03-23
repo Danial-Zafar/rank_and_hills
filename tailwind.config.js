@@ -29,6 +29,9 @@ module.exports = {
         sans: ['OpenSans', ...defaultTheme.fontFamily.sans],
         serif: ['Cormorant-Garamond', ...defaultTheme.fontFamily.serif]
       },
+      width: {
+        '[27rem]': '27rem'
+      },
       maxWidth: {
         '1/2': '50%'
       }
@@ -36,7 +39,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['active'],
+      backgroundColor: ['active', 'checked'],
+      borderColor: ['checked'],
       tranform: ['group-hover'],
       translate: ['group-hover']
     }
