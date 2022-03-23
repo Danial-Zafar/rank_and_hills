@@ -23,10 +23,7 @@
                     {{officeModel.title}}
                 </h1>
                 <ul class="hidden lg:block lg:mt-8 text-white lg:text-sm sm:mt-4 sm:text-xl">
-                  {{officeModel.address}}
-                    <!-- <li>510 Thomson Road</li>
-                    <li class="mt-1">#11-00 SLF Building</li>
-                    <li class="mt-1">Singapore 298135</li> -->
+                    <li v-for="line in sanitizeAddress(officeModel.address)">{{ line }}</li>
                 </ul>
 
                 <ul class="hidden lg:block lg:mt-5 text-white lg:text-sm sm:mt-4 sm:text-xl">

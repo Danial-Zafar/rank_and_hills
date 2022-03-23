@@ -7,20 +7,20 @@
         <div v-if="about && about[1]" class="block md:hidden">
           <img class="inset-0 w-full h-full object-cover object-center" :src="about[1].image" alt="Oasia Hotel">
         </div>
-        <div class="px-10 py-12 max-w-full col-span-1" v-if="about && about[0]"> 
+        <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-span-1" v-if="about && about[0]"> 
           <h1 class="text-6xl font-serif text-white">
             {{about[0].title}}
           </h1>
           <p class="mt-3 text-white sm:mt-4 text-sm" v-if="about && about[0]" v-for="line in sanitizeText(about[0].body_text)" v-html="line"></p>
         </div>
-        <div class="px-10 py-12 max-w-full col-start-1 bg-white" v-if="about && about[2] && about[2].image_group && about[2].image_group.image">
+        <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-start-1 bg-white" v-if="about && about[2] && about[2].image_group && about[2].image_group.image">
           <div class="flex justify-around content-center">
             <div v-for="image in about[2].image_group.image">
                 <img class="h-28" :src="image.url" :alt="image.image_alt">
             </div>
           </div> 
         </div>
-        <div class="px-10 py-12 max-w-full col-span-1 bg-brand-dark" v-if="about && about[2]"> 
+        <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-span-1 bg-brand-dark" v-if="about && about[2]"> 
           <h1 class="text-6xl font-serif text-white">
             {{about[2].title}}
           </h1>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="grid md:grid-cols-2">
-      <div class="px-10 py-12 max-w-full col-auto" v-if="about && about[3]">
+      <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-auto" v-if="about && about[3]">
         <div class="flex flex-row">
           <div class="max-w-1/2">
             <img class="h-20" :src="about[3].image" alt="360 Solution">
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="px-10 py-12 max-w-full bg-brand-about" v-if="about && about[5]"> 
+      <div class="px-4 py-6 md:px-10 md:py-12 max-w-full bg-brand-about" v-if="about && about[5]"> 
         <h1 class="text-6xl font-serif text-white">
           {{about[5].title}}
         </h1>
