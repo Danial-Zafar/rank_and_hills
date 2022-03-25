@@ -104,10 +104,51 @@
 
       <div class="hidden md:grid md:grid-cols-2" style="grid-auto-rows: minmax(100px, auto);" v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
         <div class="bg-brand" v-for="(image, index) in projectDtails.image.gallery" :class="setImageClasses(index)">
-          <img class="object-fill" :src="image.url" :alt="image.image_alt">
+          <img class="object-fill cursor-pointer" :src="image.url" :alt="image.image_alt" @click="openModal()">
         </div>
       </div>
     </div>
   </main>
 
+  <div class="bg-gray-200 flex items-center justify-center h-screen" :class="displayModalBg ? 'modal-active' : ''">  
+    <div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center" :class="displayModalBox ? '' : 'opacity-0 pointer-events-none'">
+      <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50" @click="openModal()"></div>
+      
+        <div class="modal-container bg-black bg-opacity-40 rounded shadow-lg z-50 overflow-y-auto">
+          
+          <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50" @click="openModal()">
+            <fa class="fa-3x text-brand-footer" :icon="['fas', 'fa-times']" />
+          </div>
+
+          <!-- Add margin if you want to see some of the overlay behind the modal-->
+          <div class="modal-content py-4 px-6">
+            <Splide :options="options" v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
+              <SplideSlide v-for="(image, index) in projectDtails.image.gallery" :key="index">
+                <img :src="image.url" alt="image.image_alt">
+              </SplideSlide>
+              <div class="splide__arrows">
+                <button class="splide__arrow splide__arrow--prev">
+                  <fa class="text-brand-footer fa-3x" :icon="['fas', 'angle-left']" />
+                </button>
+                <button class="splide__arrow splide__arrow--next">
+                  <fa class="text-brand-footer fa-3x" :icon="['fas', 'angle-right']" />
+                </button>
+              </div>
+            </Splide>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- <div class="w-full h-full">
+    <div id="modal-bg" class="w-full h-full bg-black bg-opacity-40 top-0 absolute hidden" @click="onModalBgClicked()" :class="displayModalBg ? 'block' : 'hidden'"></div>
+    <div id="modal-box" class="sm:w-[385px] sm:min-w-[40vw] min-w-[80vw] min-h-[50vh] flex-col items-center gap-2 -translate-y-1/2 p-6 bg-[#FFFFEB] rounded-lg top-1/2 left-1/2 -translate-x-1/2 absolute" :class="displayModalBox ? 'flex': 'hidden'">
+      <svg xmlns="http://www.w3.org/2000/svg" class="text-[#059669] mx-auto h-11 rounded-full bg-[#D1FAE5] w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 13l4 4L19 7" />
+      </svg>
+      <span class="text-2xl font-medium">Payment Successful</span>
+      <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, consequatur?</p>
+    </div> -->
+  </div>
 </section>

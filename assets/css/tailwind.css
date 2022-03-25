@@ -234,6 +234,14 @@
     [type='checkbox']:checked:hover {
         background-color: #ff5100;
     }
+
+    .modal {
+      transition: opacity 0.25s ease;
+    }
+    div.modal-active {
+      overflow-x: hidden;
+      overflow-y: visible !important;
+    }
 }
 
 @layer utilities {

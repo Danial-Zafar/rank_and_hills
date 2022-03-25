@@ -1,11 +1,13 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 
 import SectionHeader from '../SectionHeader/section-header'
+import Modal from '../Modal/modal'
 
 @Component({
   name: 'Project-details',
   components: {
-    SectionHeader
+    SectionHeader,
+    Modal
   }
 })
 export default class ProjectDetails extends Vue {
@@ -14,6 +16,22 @@ export default class ProjectDetails extends Vue {
   pslug: string = ''
   active: string = 'block'
   activeSlide: number = 0
+
+  displayModalBox: boolean = false
+  displayModalBg: boolean = false
+  options: any = {
+    type: 'fade',
+    perPage: 1,
+    gap: 0,
+    padding: 0,
+    rewind: true,
+    width: '100vw',
+    height: '100%',
+    cover: false,
+    autoplay: true,
+    interval: 4000,
+    arrows: true
+  }
 
   created () {
     this.pslug = this.$route.query.pslug.toString()
@@ -106,5 +124,16 @@ export default class ProjectDetails extends Vue {
       this.activeSlide -= 1
     }
     this.active = 'block'
+  }
+
+  openModal () {
+    console.log('openModal')
+    this.displayModalBox = !this.displayModalBox
+    this.displayModalBg = !this.displayModalBg
+  }
+
+  onModalBgClicked () {
+    this.displayModalBox = false
+    this.displayModalBg = false
   }
 }
