@@ -6,7 +6,7 @@
       <div id="carouselExampleControls" class="carousel slide relative">
         <div class="carousel-inner relative w-full overflow-hidden" v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
           <div class="carousel-item relative float-left w-full" v-for="(image, index) in projectDtails.image.gallery" :class="index === activeSlide ? active : 'hidden'">
-            <img :src="image.url" class="block w-full" :alt="image.image_alt" />
+            <img :src="image.url" class="block w-full" loading="lazy" :alt="image.image_alt" />
           </div>
         </div>
         <button
@@ -104,13 +104,13 @@
 
       <div class="hidden md:grid md:grid-cols-2" style="grid-auto-rows: minmax(100px, auto);" v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
         <div class="bg-brand" v-for="(image, index) in projectDtails.image.gallery" :class="setImageClasses(index)">
-          <img class="object-fill cursor-pointer" :src="image.url" :alt="image.image_alt" @click="openModal()">
+          <img class="object-fill cursor-pointer" loading="lazy" :src="image.url" :alt="image.image_alt" @click="openModal()">
         </div>
       </div>
     </div>
   </main>
 
-  <div class="bg-gray-200 flex items-center justify-center h-screen" :class="displayModalBg ? 'modal-active' : ''">  
+  <div class="bg-gray-200 flex items-center justify-center" :class="displayModalBg ? 'modal-active' : ''">  
     <div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center" :class="displayModalBox ? '' : 'opacity-0 pointer-events-none'">
       <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50" @click="openModal()"></div>
       
@@ -121,19 +121,11 @@
           </div>
 
           <!-- Add margin if you want to see some of the overlay behind the modal-->
-          <div class="modal-content py-4 px-6">
+          <div class="modal-content">
             <Splide :options="options" v-if="projectDtails && projectDtails.image && projectDtails.image.gallery">
               <SplideSlide v-for="(image, index) in projectDtails.image.gallery" :key="index">
-                <img :src="image.url" alt="image.image_alt">
+                <img class="object-fill" loading="lazy" :src="image.url" alt="image.image_alt">
               </SplideSlide>
-              <div class="splide__arrows">
-                <button class="splide__arrow splide__arrow--prev">
-                  <fa class="text-brand-footer fa-3x" :icon="['fas', 'angle-left']" />
-                </button>
-                <button class="splide__arrow splide__arrow--next">
-                  <fa class="text-brand-footer fa-3x" :icon="['fas', 'angle-right']" />
-                </button>
-              </div>
             </Splide>
           </div>
         </div>

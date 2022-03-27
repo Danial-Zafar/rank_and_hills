@@ -5,7 +5,7 @@
     <div class="grid md:grid-cols-2">
       <div>
         <div v-if="about && about[1]" class="block md:hidden">
-          <img class="inset-0 w-full h-full object-cover object-center" :src="about[1].image" alt="Oasia Hotel">
+          <img loading="lazy" class="inset-0 w-full h-full object-cover object-center" :src="about[1].image" alt="Oasia Hotel">
         </div>
         <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-span-1" v-if="about && about[0]"> 
           <h1 class="text-6xl font-serif text-white">
@@ -16,7 +16,7 @@
         <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-start-1 bg-white" v-if="about && about[2] && about[2].image_group && about[2].image_group.image">
           <div class="flex justify-around content-center">
             <div v-for="image in about[2].image_group.image">
-                <img class="h-28" :src="image.url" :alt="image.image_alt">
+                <img loading="lazy" class="h-28" :src="image.url" :alt="image.image_alt">
             </div>
           </div> 
         </div>
@@ -28,14 +28,14 @@
         </div>
       </div>
       <div v-if="about && about[1]" class="hidden md:block">
-        <img class="inset-0 w-full h-full object-cover object-center" :src="about[1].image" alt="Oasia Hotel">
+        <img loading="lazy" class="inset-0 w-full h-full object-cover object-center" :src="about[1].image" alt="Oasia Hotel">
       </div>
     </div>
     <div class="grid md:grid-cols-2">
       <div class="px-4 py-6 md:px-10 md:py-12 max-w-full col-auto" v-if="about && about[3]">
         <div class="flex flex-row">
           <div class="max-w-1/2">
-            <img class="h-20" :src="about[3].image" alt="360 Solution">
+            <img loading="lazy" class="h-20" :src="about[3].image" alt="360 Solution">
             <h1 class="mt-5 text-3xl md:text-5xl font-serif text-white">
               {{'Design Management Engineering'}}
             </h1>

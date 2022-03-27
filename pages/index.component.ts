@@ -8,9 +8,11 @@ import ExperienceBeyond from '@/components/ExperienceBeyond/experience-beyond.vu
 import Contact from '@/components/Contact/contact.vue'
 import MapContainer from '@/components/MapContainer/map-container.vue'
 import Footer from '@/components/Footer/footer.vue'
+import LoadingSpinner from '@/components/LoadingSpinner/loading-spinner.vue'
 
 @Component({
   components: {
+    LoadingSpinner,
     Header,
     CTA,
     Projects,
@@ -21,4 +23,17 @@ import Footer from '@/components/Footer/footer.vue'
     Footer
   }
 })
-export default class IndexComponent extends Vue {}
+export default class IndexComponent extends Vue {
+  displayLoadingSpinner = true
+  beforeCreate () {
+    this.$nextTick(() => {
+      this.displayLoadingSpinner = true
+    })
+  }
+
+  mounted () {
+    this.$nextTick(() => {
+      this.displayLoadingSpinner = false
+    })
+  }
+}

@@ -52,7 +52,7 @@
         </div>
         <div class="w-5/6 flex flex-wrap">
           <div v-if="filteredProjects" v-for="item in filteredProjects" class="w-60 h-60 relative border-0 cursor-pointer" style="flex-basis: 20%" @click="$router.push({path: 'project-details', query: { pslug: item.url.split('/').slice(4, 6).join('/')}})">
-            <img :src="item.thumbnail" class="object-fill h-full w-full" :alt="item.title" />
+            <img :src="item.thumbnail" class="object-fill h-full w-full" loading="lazy" :alt="item.title" />
             <div class="absolute w-full h-full top-0 left-0 block opacity-0 hover:opacity-100 hover:bg-opacity-100 hover:bg-brand-orange">
               <div class="grid grid-rows-2 justify-center text-white">
                 <div class="px-12 py-24 row-span-1 flex justify-start flex-col">

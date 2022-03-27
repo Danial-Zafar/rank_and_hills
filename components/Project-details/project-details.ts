@@ -25,12 +25,14 @@ export default class ProjectDetails extends Vue {
     gap: 0,
     padding: 0,
     rewind: true,
-    width: '100vw',
-    height: '100%',
+    height: '40rem',
     cover: false,
     autoplay: true,
     interval: 4000,
-    arrows: true
+    pagination: false,
+    classes: {
+      arrow: 'splide__arrow bg-transparent fill-current text-brand-footer text-5xl'
+    }
   }
 
   created () {
@@ -127,7 +129,6 @@ export default class ProjectDetails extends Vue {
   }
 
   openModal () {
-    console.log('openModal')
     this.displayModalBox = !this.displayModalBox
     this.displayModalBg = !this.displayModalBg
   }

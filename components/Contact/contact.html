@@ -2,7 +2,7 @@
     <SectionHeader title="Contact" url="#" />
     <div class="grid lg:grid-cols-2 2xl:grid-cols-2">
         <div class="block lg:hidden relative">
-            <img class="lg:mt-6 sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" :src="cityImg" alt="Map">
+            <img class="lg:mt-6 sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" loading="lazy" :src="cityImg" alt="Map">
             <div class="absolute w-full h-full top-0 left-0 block bg-black bg-opacity-40">
                 <div class="px-10 py-10 text-xs text-right text-brand-thumb">
                     <ul class="list-none">
@@ -19,14 +19,14 @@
         </div>
         <div class="px-4 py-5 sm:px-8 sm:py-12 max-w-md sm:max-w-xl lg:px-14 lg:py-8 lg:max-w-full xl:mr-0 2xl:col-span-1">
             <div class="xl:max-w-xl">
-                <h1 class="text-3xl text-brand-thumb lg:text-white sm:mt-8 lg:mt-6 sm:text-4xl lg:text-3xl xl:text-4xl">
+                <h1 class="text-3xl text-brand-thumb lg:text-white sm:mt-8 lg:mt-6 sm:text-4xl lg:text-6xl lg:font-thin lg:opacity-40 xl:text-6xl">
                     {{officeModel.title}}
                 </h1>
-                <ul class="hidden lg:block lg:mt-8 text-white lg:text-sm sm:mt-4 sm:text-xl">
+                <ul class="hidden lg:block lg:mt-8 text-white lg:text-xl lg:not-italic 2xl:text-xl lg:opacity-75 lg:text-block sm:mt-4 sm:text-xl">
                     <li v-for="line in sanitizeAddress(officeModel.address)">{{ line }}</li>
                 </ul>
 
-                <ul class="hidden lg:block lg:mt-5 text-white lg:text-sm sm:mt-4 sm:text-xl">
+                <ul class="hidden lg:block lg:mt-5 text-white lg:text-xl lg:opacity-75 lg:not-italic 2xl:text-xl sm:mt-4 sm:text-xl">
                     <li class="mt-1">Tel {{officeModel.phone}}</li>
                     <li class="mt-1">Fax {{officeModel.fax}}</li>
                 </ul>
@@ -37,10 +37,8 @@
                 <p class="mt-2 lg:hidden lg:mt-5 text-xs text-brand-thumb lg:text-sm sm:mt-4 sm:text-xl">
                   Tel{{officeModel.phone}}, Fax +65 6259 8648
                 </p>
-                <p class="mt-10 pb-44 hidden lg:block">
-                    <svg class="h-14 w-14 stroke-current text-brand-marker" stroke="#bdbdbd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                    </svg>
+                <p class="mt-10 pb-44 hidden lg:block lg:opacity-75">
+                    <fa class="fa-3x text-brand-marker" :icon="['fas', 'location-dot']" />
                 </p>
             </div>
         </div>
@@ -51,8 +49,8 @@
                     <ul v-for="(item, index) in offices" class="list-none" :class="index !== 0 ? 'mt-6': ''">
                         <li class="tracking-widest cursor-pointer uppercase" @click="onClickchangeCity(item.country)" :class="cityName === item.country ? 'text-brand-orange' : ''">{{item.country}}</li>
                     </ul>
-                    <div class="relative mt-64">
-                        <div class="absolute bottom-0 right-0 text-5xl text-white font-serif">We Understand Asia</div>
+                    <div class="relative mt-80">
+                        <div class="absolute bottom-0 right-0 text-4xl opacity-40 text-right 2xl:text-6xl font-serif">We Understand Asia</div>
                     </div>
                 </div>
             </div>
