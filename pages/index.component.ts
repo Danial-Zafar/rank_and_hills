@@ -32,8 +32,8 @@ export default class IndexComponent extends Vue {
   }
 
   mounted () {
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.displayLoadingSpinner = false
-    })
+    }, 900)
   }
 }

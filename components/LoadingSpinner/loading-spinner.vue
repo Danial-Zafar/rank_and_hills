@@ -7,7 +7,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(32, 31, 31, 0.8);
     text-align: center;
     padding-top: 200px;
     font-size: 30px;
