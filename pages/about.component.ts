@@ -22,8 +22,8 @@ export default class OfficesComponent extends Vue {
   }
 
   mounted () {
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.displayLoadingSpinner = false
-    })
+    }, 500)
   }
 }
